@@ -6,13 +6,97 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>person</ion-title>
-  </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding style="background: #f6f6f6">
+  <div>
+    <ion-grid *ngIf="!isLogin" style="background: white;margin-bottom: 1em !important;overflow: hidden">
+      <ion-row>
+        <h1 class="welcom">欢迎来到时光游</h1>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6 >
+          <ion-buttons>
+            <button class="login_regist_btn" (click)="toLogin()">登录/注册</button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col col-6 class="footer_logo">
+          <img src="../../assets/images/footer.png"/>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="!!isLogin">
+      <ion-list style="margin: 0;margin-bottom: 1em">
+        <ion-item class="_noborder">
+          <button ion-item>
+            <ion-thumbnail item-start class="user_icon">
+              <img src="{{url}}/uploads/{{user?.icon}}">
+            </ion-thumbnail>
+            <h2 class="user_name">{{user?.userName}}</h2>
+            <p><span class="user_lv">Lv.{{user?.lvName}}</span></p>
+          </button>
+        </ion-item>
+        <ion-item class="_noborder">
+          <ion-buttons text-center>
+            <button col-8 class="creat_notes">
+              <div style="margin: 0 auto;width: 130px;">
+                <div class="btn_text">
+                <h2 text-left style="font-weight: 600">发游记</h2>
+                <p style="color: #333">记录旅行美好</p>
+              </div>
+                <div class="btn_icon">
+                  <ion-icon name="camera" style="font-size: 40px"></ion-icon>
+                </div>
+              </div>
+            </button>
+          </ion-buttons>
+        </ion-item>
+      </ion-list>
+      <ion-row style="background: white;margin-bottom: 1em">
+        <p class="time_lv">
+          您当前的时光：
+          <span style="color: #ff9d00">{{user?.userlv}}</span>
+        </p>
+      </ion-row>
+    </ion-grid>
+  </div>
 
+  <div style="background: white;margin-bottom: 1em">
+    <ion-grid>
+      <ion-row class="_container">
+        <ion-col col-4 class="menu" (click)="toIndex()">
+          <ion-icon name="person" style="font-size: 2.5em;color: #5aa2ff;"></ion-icon>
+          <p>我的首页</p>
+        </ion-col>
+        <ion-col col-4 class="menu">
+          <ion-icon name="star" style="font-size: 2.5em;color: #ffb411;"></ion-icon>
+          <p>我的收藏</p>
+        </ion-col>
+        <ion-col col-4 class="menu right_no">
+          <ion-icon name="flag" style="font-size: 2.5em;color: firebrick;"></ion-icon>
+          <p>我的足迹</p>
+        </ion-col>
+        <ion-col col-4 class="menu bottom_no">
+          <ion-icon name="bookmark" style="font-size: 2.5em;color: #ffc67b;"></ion-icon>
+          <p>我的游记</p>
+        </ion-col>
+        <ion-col col-4 class="menu bottom_no">
+          <ion-icon name="albums" style="font-size: 2.5em;color: #5aa2ff;"></ion-icon>
+          <p>我的照片</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-list>
+    <button ion-item class="setting _noborder" (click)="setting()">
+      设置
+    </button>
+  </ion-list>
 </ion-content>
+
+<ion-footer >
+  <ion-grid>
+
+  </ion-grid>
+</ion-footer>

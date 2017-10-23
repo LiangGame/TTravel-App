@@ -1,3 +1,97 @@
 page-person {
+  .scroll-content, .grid {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  //头部
+  ._header {
+    padding: 10px;
+    //height: 10em;
+  }
+  //h1欢迎信息
+  .welcom {
+    padding-top: 25px;
+    padding-left: 16px;
+    font-size: 28px;
+    font-weight: 500;
+    color: #333;
+  }
+  .footer_logo img {
+    position: absolute !important;
+    top: -5px;
+    left: 5px;
+    z-index: 1;
+  }
+  //登录状态
+  ._noborder, .item-inner {
+    border: none !important;
+  }
+  .user_icon img {
+    border-radius: 50% !important;
+  }
+  .user_name {
+    font-size: 1.1em;
+  }
+  .user_lv {
+    color: #f53d3d;
+  }
+  .creat_notes {
+    background: #FEDC2A;
+    height: 4em;
+    border-radius: 2em;
+    //text-align: center;
+    padding-top: 0.7em;
+  }
+  .btn_icon {
+    float: right;
+    margin-right: 1em;
+  }
+  .btn_text {
+    float: right;
+  }
+  .time_lv {
+    padding-left: 21px;
+    font-size: 18px;
+  }
+  //登录注册按钮
+  .login_regist_btn {
+    width: 110px;
+    height: 40px;
+    background: #fedc2a;
+    border-radius: 4px;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-left: 11px;
+    margin-bottom: 15px;
+    //font-family: "微软雅黑";
+  }
+  ._container {
+    //margin-bottom: 1em;
+  }
+  //菜单
+  .menu {
+    //height: 7em;
+    //line-height: 1em;
+    padding: 0.8em 1.2em 1em 1.2em;
+    text-align: center;
+    font-size: 1em;
+    border-bottom: solid 0.5px #cccccc;
+    border-right: solid 0.5px #cccccc;
+    //background: #7fff9e;
+  }
+  .menu p {
+    margin: 0 !important;
+  }
+  .right_no {
+    border-right: none;
+  }
+  .bottom_no {
+    border-bottom: none;
+  }
+  //设置
+  .setting {
+    border-bottom: solid 0.5px #ccc !important;
+  }
 
 }

@@ -2,6 +2,9 @@ import {NgModule, ErrorHandler} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
+
 
 import {AlbumPage} from '../pages/album/album';
 import {NotesPage} from '../pages/notes/notes';
@@ -12,9 +15,16 @@ import {TabsPage} from '../pages/tabs/tabs';
 import {PersonPage} from '../pages/person/person';
 import {LoginPage} from '../pages/login/login';
 import {RegistPage} from '../pages/regist/regist';
+import {SettingPage} from '../pages/setting/setting'
+import {AboutPage} from '../pages/about/about';
+import {UserIndexPage} from '../pages/user-index/user-index'
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+
+// 导入服务
+import {GlobalPropertyService} from '../services/global-property.service';
+import {LocalStorage} from '../services/local-storage.service';
 
 @NgModule({
   declarations: [
@@ -27,11 +37,16 @@ import {SplashScreen} from '@ionic-native/splash-screen';
     ScenicPage,
     StrategyPage,
     LoginPage,
-    RegistPage
+    RegistPage,
+    SettingPage,
+    AboutPage,
+    UserIndexPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,12 +59,17 @@ import {SplashScreen} from '@ionic-native/splash-screen';
     ScenicPage,
     StrategyPage,
     LoginPage,
-    RegistPage
+    RegistPage,
+    SettingPage,
+    AboutPage,
+    UserIndexPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GlobalPropertyService,
+    LocalStorage,
   ]
 })
 export class AppModule {
