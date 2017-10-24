@@ -1,3 +1,54 @@
 page-login {
-
+  /*头部*/
+  #header .title {
+    font-size: 16px;
+    font-weight: 200;
+    padding-top: 0.5rem;
+  }
+  #header .back-btn{
+    background: none;
+    text-align: center;
+  }
+  /*form表单*/
+  #loginForm {
+    //margin-top: 3em;
+  }
+  #loginForm input {
+    height: 3em;
+    width: 100%;
+    margin: 0.7rem 0;
+    border: solid 1px #ccc;
+    border-radius: 0.5rem;
+    padding-left: 1em;
+  }
+  #loginForm input:focus {
+    border: solid 1px #FEDC2A;
+    box-shadow: 0 0 10px -2px #FEDC2A;
+  }
+  /*错误提示*/
+  .error-message{
+    color: #ff0f0f;
+    margin: 0;
+  }
+  /*忘记密码*/
+  .forgetPwd{
+    position: absolute;
+    right: 0;
+    font-size: 0.7em;
+  }
+  /*登录按钮*/
+  .login-btn{
+    background: #FEDC2A !important;
+  }
+  .login-btn:active{
+    background: #FEDC2A !important;
+  }
+  /*页脚*/
+  .footer {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  .footer .item-inner{
+    border-bottom: none !important;
+  }
 }
