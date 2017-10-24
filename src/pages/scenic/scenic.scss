@@ -1,3 +1,41 @@
 page-scenic {
-
+.grid{
+    padding: 0 !important;
+  }
+.img{
+  padding: 0;
+  height: 100px;
+  }
+.search{
+    margin-left: 10px;
+  }
+  .search input{
+  border: none;
+  color: #8f8f8f;
+}
+  .search span{
+    width: 34px;
+    height: 34px;
+    padding: -2px;
+    //border: 1.5px solid  white;
+    margin-left: -4px;
+    background-color: white;
+    color: black;
+  }
+.didian{
+  margin: -50px 0 0 30px;
+  color: white;
+}
+  p{
+    font-size: 10px;
+  }
+  .didian span{
+    margin-top: -20px;
+    font-size: 20px;
+  }
+.list-zy{
+  padding: 5px 20px;
+  color: #8c8c8c;
+  font-size: 16px
+}
 }

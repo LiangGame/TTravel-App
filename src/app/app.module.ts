@@ -12,6 +12,7 @@ import {TabsPage} from '../pages/tabs/tabs';
 import {PersonPage} from '../pages/person/person';
 import {LoginPage} from '../pages/login/login';
 import {RegistPage} from '../pages/regist/regist';
+import {CityPage} from '../pages/city/city';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -27,7 +28,8 @@ import {SplashScreen} from '@ionic-native/splash-screen';
     ScenicPage,
     StrategyPage,
     LoginPage,
-    RegistPage
+    RegistPage,
+    CityPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import {SplashScreen} from '@ionic-native/splash-screen';
     ScenicPage,
     StrategyPage,
     LoginPage,
-    RegistPage
+    RegistPage,
+    CityPage
   ],
   providers: [
     StatusBar,
