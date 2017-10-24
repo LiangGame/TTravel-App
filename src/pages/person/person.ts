@@ -53,15 +53,15 @@ export class PersonPage {
 
   }
   // 页面加载完毕触发。
-  ionViewLoaded(){
-    setInterval(function () {
-      let img = document.querySelector('.footer_logo').children[0];
-      img.style.top = '-5px';
-      setTimeout(function () {
-        img.style.top = '-3px';
-      },500)
-    }, 1000);
-  }
+  // ionViewLoaded(){
+  //   setInterval(function () {
+  //     let img = document.querySelector('.footer_logo').children[0];
+  //     <Element>img.style.top = '-5px';
+  //     setTimeout(function () {
+  //       <Element>img.style.top = '-3px';
+  //     },500)
+  //   }, 1000);
+  // }
 
   toLogin() {
     // console.log('toLogin');
