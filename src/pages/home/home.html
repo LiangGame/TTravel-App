@@ -40,7 +40,7 @@
   <ion-item *ngFor="let topic of _notes">
     <div class="fl" col-6>
     <div>
-      <h2 class="title">{{topic?.title | topicString |themeString:8}}</h2>
+      <h2 class="title">{{topic?.title | topicString |themeString:10}}</h2>
     </div>
 
     <ion-col class="s1">
@@ -48,8 +48,11 @@
     </ion-col>
     <h5 class="p2">{{topic?.userName}}</h5>
     </div>
+
     <div class="fr" col-6>
-      <img src="{{url}}/uploads/{{topic?.icon}}" alt="">
+      <div class="img_2" [innerHTML]="topic?.content">
+        <!--<img class="img" src="http://owpv96eru.bkt.clouddn.com{{topic?.coverimg}}" alt="">-->
+      </div>
     </div>
 
 

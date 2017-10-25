@@ -3,9 +3,10 @@ import {IonicPage, NavController, ViewController} from 'ionic-angular';
 import {FormBuilder, Validators, FormGroup} from '@angular/forms';
 import {Storage} from '@ionic/storage';
 import { ToastController } from 'ionic-angular';
-
+import {ModalController} from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs'
 import {HomePage} from '../home/home'
+import {RegistPage} from '../regist/regist';
 
 // 导入服务
 import {UserService} from '../../services/user.service'
@@ -33,7 +34,8 @@ export class LoginPage {
               private formBuilder: FormBuilder,
               private userSer: UserService,
               private storage: Storage,
-              public toastCtrl: ToastController) {
+              public toastCtrl: ToastController,
+              public modalCtrl: ModalController,) {
     // 表单验证
     this.loginForm = formBuilder.group({
 
@@ -50,7 +52,10 @@ export class LoginPage {
   ionViewDidLoad() {
     // console.log('ionViewDidLoad LoginPage');
   }
-
+  toRegist() {
+    let regist = this.modalCtrl.create(RegistPage);
+    regist.present();
+  }
   // 返回
   back() {
     this.navCtrl.push(TabsPage);

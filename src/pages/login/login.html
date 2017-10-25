@@ -41,7 +41,7 @@
       </ion-label>
     </ion-row>
     <div style="position: relative;height: 16px">
-      <a href="#" class="forgetPwd">忘记密码？</a>
+      <a href="#" class="forgetPwd" >忘记密码？</a>
     </div>
     <div class="login-btn-container">
       <button type="submit" ion-button block class="login-btn" [disabled]="!loginForm.valid">登录</button>
@@ -52,6 +52,6 @@
 
 <ion-footer>
   <ion-toolbar>
-    <ion-item class="footer">还没有账号, <a href="#">前往注册</a></ion-item>
+    <ion-item class="footer">还没有账号, <a href="#" (click)="toRegist()">前往注册</a></ion-item>
   </ion-toolbar>
 </ion-footer>
