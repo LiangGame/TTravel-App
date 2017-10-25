@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams,ModalController} from 'ionic-angular';
 import {CityPage} from '../city/city';
+import {PhotoPage} from '../photo/photo';
+import {SearchPage} from '../search/search';
 
 @IonicPage()
 @Component({
@@ -21,6 +23,14 @@ export class ScenicPage {
   }
   tocity(){
     let model = this.ModalCtrl.create(CityPage);
+    model.present();
+  }
+  tophoto(){
+    let model = this.ModalCtrl.create(PhotoPage);
+    model.present();
+  }
+  tosearch(){
+    let model = this.ModalCtrl.create(SearchPage);
     model.present();
   }
 }

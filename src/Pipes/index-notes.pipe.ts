@@ -9,7 +9,7 @@ export class IndexNotesPipe implements PipeTransform {
     let new_Value = [];
     if(value){
       if(value!=''&&value!=null){
-        if(value.length >= 4){
+        if(value.length >= 8){
           for(let i = 0;i<args;i++){
             new_Value[i]=value[i]
           }

@@ -9,7 +9,6 @@ export class ScenicService {
   // url: string = 'http://127.0.0.1:8889/scenic';
   public scenicInfo: any;
 
-
   constructor(private http: HttpClient,
               private glo: GlobalPropertyService) {
     this.url = glo.serverUrl;

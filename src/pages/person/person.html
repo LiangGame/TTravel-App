@@ -29,7 +29,7 @@
     <ion-grid *ngIf="!!isLogin">
       <ion-list style="margin: 0;margin-bottom: 1em">
         <ion-item class="_noborder">
-          <button ion-item>
+          <button ion-item (click)="toIndex()">
             <ion-thumbnail item-start class="user_icon">
               <img src="{{url}}/uploads/{{user?.icon}}">
             </ion-thumbnail>
@@ -69,19 +69,19 @@
           <ion-icon name="person" style="font-size: 2.5em;color: #5aa2ff;"></ion-icon>
           <p>我的首页</p>
         </ion-col>
-        <ion-col col-4 class="menu">
+        <ion-col col-4 class="menu" (click)="toCollect()">
           <ion-icon name="star" style="font-size: 2.5em;color: #ffb411;"></ion-icon>
           <p>我的收藏</p>
         </ion-col>
-        <ion-col col-4 class="menu right_no">
+        <ion-col col-4 class="menu right_no" (click)="toFootPrint()">
           <ion-icon name="flag" style="font-size: 2.5em;color: firebrick;"></ion-icon>
           <p>我的足迹</p>
         </ion-col>
-        <ion-col col-4 class="menu bottom_no">
+        <ion-col col-4 class="menu bottom_no" (click)="toNotes()">
           <ion-icon name="bookmark" style="font-size: 2.5em;color: #ffc67b;"></ion-icon>
           <p>我的游记</p>
         </ion-col>
-        <ion-col col-4 class="menu bottom_no">
+        <ion-col col-4 class="menu bottom_no" (click)="toPhoto()">
           <ion-icon name="albums" style="font-size: 2.5em;color: #5aa2ff;"></ion-icon>
           <p>我的照片</p>
         </ion-col>

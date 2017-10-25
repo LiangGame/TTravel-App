@@ -19,6 +19,14 @@ import {SettingPage} from '../pages/setting/setting'
 import {AboutPage} from '../pages/about/about';
 import {UserIndexPage} from '../pages/user-index/user-index'
 import {CityPage} from '../pages/city/city';
+import {UserCollectPage} from '../pages/user-collect/user-collect';
+import {UserNotesPage} from '../pages/user-notes/user-notes';
+import {UserPhotoPage} from '../pages/user-photo/user-photo';
+import {UserFootPrintPage} from '../pages/user-foot-print/user-foot-print';
+import {UserLvPage} from '../pages/user-lv/user-lv';
+import {PhotoPage} from '../pages/photo/photo';
+import {SearchPage} from '../pages/search/search';
+import {LiebiaoPage} from '../pages/liebiao/liebiao';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -32,6 +40,9 @@ import {SearchScenicPipe} from '../Pipes/search-scenic.pipe';
 import {ThemeStringPipe} from '../Pipes/theme-string.pipe';
 import {TopicStringPipe} from '../Pipes/topic-string.pipe';
 import {SearchNotesPipe} from '../Pipes/search-notes.pipe';
+
+// 管道
+import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
 
 @NgModule({
   declarations: [
@@ -47,12 +58,26 @@ import {SearchNotesPipe} from '../Pipes/search-notes.pipe';
     RegistPage,
     SettingPage,
     AboutPage,
+    UserCollectPage,
     UserIndexPage,
     CityPage,
     SearchScenicPipe,
     ThemeStringPipe,
     TopicStringPipe,
-    SearchNotesPipe
+    SearchNotesPipe,
+    CityPage,
+    UserIndexPage,
+    UserNotesPage,
+    UserPhotoPage,
+    UserFootPrintPage,
+    UserLvPage,
+    // 管道
+    LocaleDatePipe,
+    ThemeStringPipe,
+    CityPage,
+    PhotoPage,
+    SearchPage,
+    LiebiaoPage
   ],
   imports: [
     BrowserModule,
@@ -75,7 +100,18 @@ import {SearchNotesPipe} from '../Pipes/search-notes.pipe';
     SettingPage,
     AboutPage,
     UserIndexPage,
-    CityPage
+    CityPage,
+    UserIndexPage,
+    CityPage,
+    UserCollectPage,
+    UserNotesPage,
+    UserPhotoPage,
+    UserFootPrintPage,
+    UserLvPage,
+    CityPage,
+    PhotoPage,
+    SearchPage,
+    LiebiaoPage
   ],
   providers: [
     StatusBar,
@@ -83,7 +119,7 @@ import {SearchNotesPipe} from '../Pipes/search-notes.pipe';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GlobalPropertyService,
     LocalStorage,
-  ]
+  ],
 })
 export class AppModule {
 }

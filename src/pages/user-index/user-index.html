@@ -22,18 +22,184 @@
 
 
 <ion-content>
-  <div class="user_topInfo">
-    <ion-icon class="user_icon">
-      <img src="{{url}}/uploads/{{user?.icon}}" alt="">
-    </ion-icon>
-    <p style="margin: 0">
-      <span class="user_name">{{user?.userName}}</span>
-      <span class="user_lv">Lv.{{user?.lvName}}</span>
-    </p>
-    <p style="color: white">个性签名：{{user?.signature}}</p>
-    <p text-right style="padding-right: 16px">
-      <span class="update">修改个人信息</span>
-    </p>
+  <div style="height: 230px">
+    <div class="user_topInfo">
+      <ion-icon class="user_icon">
+        <img src="{{url}}/uploads/{{user?.icon}}" alt="">
+      </ion-icon>
+      <p style="margin: 0">
+        <span class="user_name">{{user?.userName}}</span>
+        <span class="user_lv">Lv.{{user?.lvName}}</span>
+      </p>
+      <p style="color: white">个性签名：{{user?.signature}}</p>
+      <p text-right style="padding-right: 16px">
+        <span class="update">修改个人信息</span>
+      </p>
+    </div>
+  </div>
+  <!--<ion-grid style="padding: 0">-->
+  <!--<ion-row>-->
+  <!--<ion-col col-3 class="user_index_menu">游记</ion-col>-->
+  <!--<ion-col col-3 class="user_index_menu">足迹</ion-col>-->
+  <!--<ion-col col-3 class="user_index_menu">收藏</ion-col>-->
+  <!--<ion-col col-3 class="user_index_menu">照片</ion-col>-->
+  <!--</ion-row>-->
+  <!--</ion-grid>-->
+  <div>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="游记" class="user_index_menu">
+        游记
+      </ion-segment-button>
+      <ion-segment-button value="收藏" class="user_index_menu" (click)="getCollectNotes()">
+        收藏
+      </ion-segment-button>
+      <ion-segment-button value="足迹" class="user_index_menu" (click)="getFootPrint()">
+        足迹
+      </ion-segment-button>
+      <ion-segment-button value="照片" class="user_index_menu" (click)="getUserImages()">
+        照片
+      </ion-segment-button>
+    </ion-segment>
   </div>
 
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'游记'">
+      <ion-card *ngFor="let item of ischeck">
+
+        <!--<ion-item>
+          <ion-avatar item-start>
+            <img src="../../assets/images/background/bg07.jpg">
+          </ion-avatar>
+          <h2>Marty McFly</h2>
+          <p>November 5, 1955</p>
+        </ion-item>-->
+        <div [innerHTML]="item?.coverimg[0]">
+
+        </div>
+        <!--<img src="{{item?.coverimg}}" height="220px">-->
+
+        <ion-card-content>
+          <p>{{item?.notes.content | themeString:90}}</p>
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left clear small style="color: #FEDC2A;font-size: 20px;height: auto">
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>{{item?.notes.like}}</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-left clear small  style="color: #FEDC2A;font-size: 20px;height: auto">
+              <ion-icon name="text"></ion-icon>
+              <div>{{item?.notes.comment}}</div>
+            </button>
+          </ion-col>
+          <ion-col center text-center style="padding-top: 12px">
+            <ion-note>
+              {{item?.notes.pubtime | localeDate:"datetime"}}
+            </ion-note>
+          </ion-col>
+        </ion-row>
+
+      </ion-card>
+
+      <!--<div>
+        <div class="check_container" (click)="check_toggle($event)">
+          <span>待审核</span>
+          <span class="check_num" style="background: #ff9d00">{{_check.length}}</span>
+        </div>
+        <div style="display: none">
+          <ion-item *ngFor="let item of _check">
+            <ion-thumbnail item-start [innerHTML]="item?.coverimg[0]">
+              &lt;!&ndash;<img src="img/thumbnail-puppy-1.jpg">&ndash;&gt;
+            </ion-thumbnail>
+            <ion-item item-end style="padding: 0">
+              <h2 style="font-size: 1.1em;font-weight: 300;padding-bottom: 5px">{{item?.notes.title}}</h2>
+              <p>
+                <span>点赞：{{item?.notes.like}}</span>
+                <span>收藏：{{item?.notes.comment}}</span>
+                <span>评论：{{item?.notes.collect}}</span>
+              </p>
+            </ion-item>
+          </ion-item>
+        </div>
+
+        <div class="check_container" (click)="check_toggle($event)">
+          <span>已审核</span>
+          <span class="check_num" style="background: #b5ff2f">{{ischeck.length}}</span>
+        </div>
+        <div style="display: block">
+          <ion-item *ngFor="let item of ischeck">
+            <ion-thumbnail item-start [innerHTML]="item?.coverimg[0]">
+              &lt;!&ndash;<img src="img/thumbnail-puppy-1.jpg">&ndash;&gt;
+            </ion-thumbnail>
+            <ion-item item-end style="padding: 0">
+              <h2 style="font-size: 1.1em;font-weight: 300;padding-bottom: 5px">{{item?.notes.title}}</h2>
+              <p>
+                <span>点赞：{{item?.notes.like}}</span>
+                <span>收藏：{{item?.notes.comment}}</span>
+                <span>评论：{{item?.notes.collect}}</span>
+              </p>
+            </ion-item>
+          </ion-item>
+        </div>
+
+        <div class="check_container" (click)="check_toggle($event)">
+          <span>未通过</span>
+          <span class="check_num" style="background: #ff3726">{{nocheck.length}}</span>
+        </div>
+        <div style="display: none">
+          <ion-item *ngFor="let item of nocheck">
+            <ion-thumbnail item-start [innerHTML]="item?.coverimg[0]">
+              &lt;!&ndash;<img src="img/thumbnail-puppy-1.jpg">&ndash;&gt;
+            </ion-thumbnail>
+            <ion-item item-end style="padding: 0">
+              <h2 style="font-size: 1.1em;font-weight: 300;padding-bottom: 5px">{{item?.notes.title}}</h2>
+              <p>
+                <span>点赞：{{item?.notes.like}}</span>
+                <span>收藏：{{item?.notes.comment}}</span>
+                <span>评论：{{item?.notes.collect}}</span>
+              </p>
+            </ion-item>
+          </ion-item>
+        </div>
+      </div>-->
+    </ion-list>
+
+    <ion-list class="card-background-page" *ngSwitchCase="'足迹'">
+      <ion-card *ngFor="let item of footPrint">
+        <img src="{{qnUrl}}{{item?.url}}"/>
+        <div class="card-title">{{item?.title}}</div>
+        <div class="card-subtitle">{{item?.time | localeDate:'datetime'}}</div>
+      </ion-card>
+    </ion-list>
+    <ion-list *ngSwitchCase="'收藏'">
+      <ion-item *ngFor="let item of collectNotes">
+        <ion-thumbnail item-start [innerHTML]="item?.coverimg[0]">
+          <!--<img src="img/thumbnail-puppy-1.jpg">-->
+        </ion-thumbnail>
+        <ion-item item-end style="padding: 0">
+          <h2 style="font-size: 1.1em;font-weight: 300;padding-bottom: 5px">{{item?.notes.title}}</h2>
+          <div class="collect_bottom">
+          <div style="float: left">
+            <span>作者：{{item?.notes.userName}}</span>
+          </div>
+          <div style="float: right">
+            <span>点赞:{{item?.notes.like}}</span>
+            <span>收藏:{{item?.notes.comment}}</span>
+            <span>评论:{{item?.notes.collect}}</span>
+          </div>
+          </div>
+        </ion-item>
+      </ion-item>
+    </ion-list>
+    <ion-list class="photo_album" *ngSwitchCase="'照片'">
+     <ul>
+       <li col-6 *ngFor="let img of userImg" [innerHTML]="img">
+
+       </li>
+     </ul>
+    </ion-list>
+  </div>
 </ion-content>

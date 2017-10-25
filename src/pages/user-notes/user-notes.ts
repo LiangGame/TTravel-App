@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 import {Storage} from '@ionic/storage';
 
 // 导入服务
@@ -7,7 +7,7 @@ import {PersonalCenterService} from '../../services/personal-center.service';
 import {GlobalPropertyService} from '../../services/global-property.service';
 
 /**
- * Generated class for the UserIndexPage page.
+ * Generated class for the UserNotesPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -15,37 +15,32 @@ import {GlobalPropertyService} from '../../services/global-property.service';
 
 @IonicPage()
 @Component({
-  selector: 'page-user-index',
-  templateUrl: 'user-index.html',
+  selector: 'page-user-notes',
+  templateUrl: 'user-notes.html',
   providers:[PersonalCenterService,GlobalPropertyService],
+
 })
-export class UserIndexPage {
+export class UserNotesPage {
   url:string;
   qnUrl:string;
   user:any;
-  pet: string = "游记";
   notes:any = [];
   _check: any = [];
   ischeck: any = [];
   nocheck: any = [];
   reg: any = /<[^>]+>/g;
   _img: any = /<img\s+.*?>/g;
-  footPrint:any;
-  collectNotes:any = [];
-  userImg:any = [];
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
               public viewCtrl: ViewController,
+              public navParams: NavParams,
               private storage: Storage,
               private glo: GlobalPropertyService,
               private personSer:PersonalCenterService) {
     // 服务器IP地址
     this.url = this.glo.serverUrl;
     this.qnUrl = this.glo.qiniuUrl;
-  }
 
-  ionViewDidLoad() {
     this.storage.ready().then(() => {
       this.storage.get('user').then((result) => {
         if (result) {
@@ -59,10 +54,11 @@ export class UserIndexPage {
       });
     });
 
-
-    console.log('ionViewDidLoad UserIndexPage');
   }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad UserNotesPage');
+  }
   // 返回
   back() {
     this.viewCtrl.dismiss();
@@ -112,7 +108,8 @@ export class UserIndexPage {
     })
   }
 
-/*
+
+
   // 展开
   check_toggle(event){
     let display = event.target.nextElementSibling.style.display;
@@ -121,58 +118,5 @@ export class UserIndexPage {
     }else{
       event.target.nextElementSibling.style.display = 'none';
     }
-  }*/
-
-
-  // 获取足迹
-  getFootPrint(){
-    this.personSer.getAllFootPorint({userId:this.user.id}).then(result => {
-      console.log(result);
-      if (result) {
-        for (let i = 0; i < result.length; i++) {
-          result[i].url = (result[i].url).split(',')[0];
-        }
-      }
-      this.footPrint = result;
-    })
   }
-  // 获取收藏
-  getCollectNotes(){
-    this.collectNotes = [];
-    this.personSer.getUserCollect(this.user.id).then(result => {
-      if (result) {
-        let reg = this.reg;
-        for (let i = 0; i < result.length; i++) {
-          if((result[i].content).match(this._img)){
-            this.collectNotes.push({coverimg:(result[i].content).match(this._img),notes:result[i]})
-          }
-          result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '').replace(/\——/ig, '');
-          if(result[i].like==''||result[i].like==null){
-            result[i].like=0;
-          };
-          if(result[i].comment==''||result[i].comment==null){
-            result[i].comment=0;
-          }
-        }
-        console.log(this.collectNotes);
-      }
-    })
-  }
-
-  // 获取用户照片
-
-  getUserImages(){
-    this.personSer.getUserImages({userId:this.user.id}).then(result => {
-      // this.userImg = result;
-      if (result) {
-        for (let i = 0; i < result.length; i++) {
-          this.userImg[i] = `
-<img src="${this.url}/userImgs/${result[i].url}" alt="" class="pull-left" >`;
-        }
-      }
-      console.log(this.userImg);
-
-    })
-  }
-
 }

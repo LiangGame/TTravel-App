@@ -42,6 +42,10 @@ page-home {
     .p1{
       float: left;
     }
+    .p2{
+      margin-top: 20px;
+    }
+
   .s1{
     margin-top: 10px;
     position: relative;
@@ -59,13 +63,15 @@ page-home {
     }
 
   }
-    .img_2{
+    .fr{
       float: right;
+    }
+    .fl{
+      float: left;
     }
     .title{
       position: relative;
       margin-bottom: 20px;
-      display: inline;
     }
   }
 }
