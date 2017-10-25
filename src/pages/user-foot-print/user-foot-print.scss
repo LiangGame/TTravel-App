@@ -1,0 +1,47 @@
+page-user-foot-print {
+  /*头部*/
+  #header{
+    background: white;
+    border-bottom: solid 0.5px #cccccc;
+  }
+  #header .title {
+    font-size: 18px;
+    font-weight: 200;
+    padding-top: 0.5rem;
+  }
+  #header .back-btn{
+    background: none;
+    text-align: center;
+  }
+
+  //足迹
+  .card-background-page {
+
+    img {
+      height: 150px;
+    }
+
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 62%;
+      width: 100%;
+      color: #fff;
+    }
+
+  }
+}

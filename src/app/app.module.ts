@@ -18,6 +18,12 @@ import {RegistPage} from '../pages/regist/regist';
 import {SettingPage} from '../pages/setting/setting'
 import {AboutPage} from '../pages/about/about';
 import {UserIndexPage} from '../pages/user-index/user-index'
+import {CityPage} from '../pages/city/city';
+import {UserCollectPage} from '../pages/user-collect/user-collect';
+import {UserNotesPage} from '../pages/user-notes/user-notes';
+import {UserPhotoPage} from '../pages/user-photo/user-photo';
+import {UserFootPrintPage} from '../pages/user-foot-print/user-foot-print';
+import {UserLvPage} from '../pages/user-lv/user-lv';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -25,7 +31,9 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 // 导入服务
 import {GlobalPropertyService} from '../services/global-property.service';
 import {LocalStorage} from '../services/local-storage.service';
-
+// 管道
+import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
+import {ThemeStringPipe} from '../Pipes/theme-string.pipe';
 @NgModule({
   declarations: [
     MyApp,
@@ -40,7 +48,16 @@ import {LocalStorage} from '../services/local-storage.service';
     RegistPage,
     SettingPage,
     AboutPage,
-    UserIndexPage
+    UserIndexPage,
+    CityPage,
+    UserCollectPage,
+    UserNotesPage,
+    UserPhotoPage,
+    UserFootPrintPage,
+    UserLvPage,
+    // 管道
+    LocaleDatePipe,
+    ThemeStringPipe
   ],
   imports: [
     BrowserModule,
@@ -62,7 +79,15 @@ import {LocalStorage} from '../services/local-storage.service';
     RegistPage,
     SettingPage,
     AboutPage,
-    UserIndexPage
+    UserIndexPage,
+    CityPage,
+    UserIndexPage,
+    CityPage,
+    UserCollectPage,
+    UserNotesPage,
+    UserPhotoPage,
+    UserFootPrintPage,
+    UserLvPage,
   ],
   providers: [
     StatusBar,
@@ -70,7 +95,9 @@ import {LocalStorage} from '../services/local-storage.service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GlobalPropertyService,
     LocalStorage,
-  ]
+
+
+  ],
 })
 export class AppModule {
 }

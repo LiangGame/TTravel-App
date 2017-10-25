@@ -8,6 +8,11 @@ import {LoginPage} from '../login/login';
 import {GlobalPropertyService} from '../../services/global-property.service';
 import {SettingPage} from "../setting/setting";
 import {UserIndexPage} from "../user-index/user-index";
+import {UserCollectPage} from '../user-collect/user-collect';
+import {UserNotesPage} from '../user-notes/user-notes';
+import {UserPhotoPage} from '../user-photo/user-photo';
+import {UserFootPrintPage} from '../user-foot-print/user-foot-print';
+import {UserLvPage} from '../user-lv/user-lv';
 
 /**
  * Generated class for the PersonPage page.
@@ -56,9 +61,9 @@ export class PersonPage {
   // ionViewLoaded(){
   //   setInterval(function () {
   //     let img = document.querySelector('.footer_logo').children[0];
-  //     <Element>img.style.top = '-5px';
+  //     img.style.top = '-5px';
   //     setTimeout(function () {
-  //       <Element>img.style.top = '-3px';
+  //       img.style.top = '-3px';
   //     },500)
   //   }, 1000);
   // }
@@ -76,6 +81,22 @@ export class PersonPage {
 
   toIndex(){
     let modal = this.modalCtrl.create(UserIndexPage);
+    modal.present();
+  }
+  toCollect(){
+    let modal = this.modalCtrl.create(UserCollectPage);
+    modal.present();
+  }
+  toFootPrint(){
+    let modal = this.modalCtrl.create(UserFootPrintPage);
+    modal.present();
+  }
+  toNotes(){
+    let modal = this.modalCtrl.create(UserNotesPage);
+    modal.present();
+  }
+  toPhoto(){
+    let modal = this.modalCtrl.create(UserPhotoPage);
     modal.present();
   }
 }

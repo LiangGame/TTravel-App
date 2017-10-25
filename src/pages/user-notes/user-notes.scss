@@ -1,0 +1,45 @@
+page-user-notes {
+  h2{
+    margin: 0 !important;
+  }
+  .item-inner{
+    border-bottom: none !important;
+  }
+  /*头部*/
+  #header {
+    background: white;
+    border-bottom: solid 0.5px #cccccc;
+  }
+  #header .title {
+    font-size: 18px;
+    font-weight: 200;
+    padding-top: 0.5rem;
+  }
+  #header .back-btn {
+    background: none;
+    text-align: center;
+  }
+
+
+  .check_container {
+    padding: 8px 16px;
+    font-size: 18px;
+    border-top: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+  }
+  .check_num {
+    display: inline-block;
+    float: right;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+  }
+
+  .check_toggle {
+    display: none;
+    transition: 5s;
+  }
+}

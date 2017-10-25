@@ -1,18 +1,109 @@
-<!--
-  Generated template for the ScenicPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>scenic</ion-title>
+    <div col-12 class="search">
+      <input col-10 type="text" placeholder="搜索目的地">
+      <span col-2>搜索</span>
+    </div>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content >
+  <ion-grid>
+    <ion-row>
+      <div col-12 class="img">
+        <img src="../../assets/destination/icon.jpg" height="150px" width="100%">
+      </div>
+      <div class="didian" (click)="tocity()">
+        <p>江苏</p>
+        <span >苏州</span>
+        <ion-icon name="arrow-dropdown"></ion-icon>
+      </div>
+    </ion-row>
+  </ion-grid>
+  <div padding style="margin-top: 30px">
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="俯瞰城市">俯瞰城市</ion-segment-button>
+      <ion-segment-button value="山水相依">山水相依</ion-segment-button>
+      <ion-segment-button value="古迹遗址">古迹遗址</ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="pet">
+    <ion-list style="margin-top: -40px;" *ngSwitchCase="'俯瞰城市'">
+      <div col-6 style="float: left">
+        <img src="../../assets/destination/ZYDJ04.jpeg">
+      </div>
+      <div col-6 style="float: left">
+        <img src="../../assets/destination/ZYDJ04.jpeg">
+      </div>
+      <div col-6 style="float: left">
+        <img src="../../assets/destination/ZYDJ04.jpeg">
+      </div>
+      <div col-6 style="float: left">
+        <img src="../../assets/destination/ZYDJ04.jpeg">
+      </div>
+    </ion-list>
+    <ion-list style="margin-top: -40px;" *ngSwitchCase="'山水相依'">
+      <div col-6 style="float: left">
+        <img src="../../assets/destination/GuZheng01.jpeg"/>
+      </div>
+      <div col-6 style="float: left">
+        <img src="../../assets/destination/GuZheng01.jpeg"/>
+      </div>
+      <div col-6 style="float: left">
+        <img src="../../assets/destination/GuZheng01.jpeg"/>
+      </div>
+      <div col-6 style="float: left">
+        <img src="../../assets/destination/GuZheng01.jpeg"/>
+      </div>
+    </ion-list>
+    <ion-list style="margin-top: -40px;" *ngSwitchCase="'古迹遗址'">
+      <div col-6 style="float: left">
+        <img src="../../assets/destination/GuZheng02.jpeg"/>
+      </div>
+      <div col-6 style="float: left">
+        <img src="../../assets/destination/GuZheng02.jpeg"/>
+      </div>
+      <div col-6 style="float: left">
+        <img src="../../assets/destination/GuZheng02.jpeg"/>
+      </div>
+      <div col-6 style="float: left">
+        <img src="../../assets/destination/GuZheng02.jpeg"/>
+      </div>
+    </ion-list>
+  </div>
+  <ion-list>
+    <span class="list-zy">自由行攻略</span>
+    <ion-item>
+      <div col-8  style="float: left">
+        <h2>Finn</h2>
+        <h3>Don't Know What To Do!</h3>
+        <span>I've had a pretty</span>
+      </div>
+      <div col-4>
+        <img src="../../assets/destination/icon.jpg"/>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div col-8  style="float: left">
+        <h2>Finn</h2>
+        <h3>Don't Know What To Do!</h3>
+        <span>I've had a pretty</span>
+      </div>
+      <div col-4>
+        <img src="../../assets/destination/icon.jpg"/>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div col-8  style="float: left">
+        <h2>Finn</h2>
+        <h3>Don't Know What To Do!</h3>
+        <span>I've had a pretty</span>
+      </div>
+      <div col-4>
+        <img src="../../assets/destination/icon.jpg"/>
+      </div>
+    </ion-item>
+  </ion-list>
+  <div col-12 style="text-align: center;margin-top: -30px">
+    <a>加载更多>></a>
+  </div>
 </ion-content>
