@@ -1,0 +1,35 @@
+page-setting {
+  ._top{
+    margin-top: 1em;
+  }
+  ._bottom{
+    margin-bottom: 1em;
+  }
+  /*头部*/
+  #header{
+    background: white;
+    border-bottom: solid 0.5px #cccccc;
+  }
+  #header .title {
+    font-size: 18px;
+    font-weight: 200;
+    padding-top: 0.5rem;
+  }
+  #header .back-btn{
+    background: none;
+    text-align: center;
+  }
+  //content 去除内边距
+  .scroll-content{
+    padding: 0 !important;
+  }
+  //页脚
+  .sign_out{
+    background: white;
+    height: 75px;
+    line-height: 75px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #5aa2ff;
+  }
+}

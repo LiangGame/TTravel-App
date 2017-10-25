@@ -1,0 +1,46 @@
+page-liebiao {
+  #header {
+    background: white;
+    border-bottom: solid 0.5px #cccccc;
+  }
+  #header .title {
+    font-size: 18px;
+    font-weight: 200;
+    padding-top: 0.5rem;
+  }
+  #header .back-btn {
+    background: none;
+    text-align: center;
+  }
+  .qimo8 {
+    overflow: hidden;
+    width: 815px;
+  }
+
+  .qimo8 .qimo { /*width:99999999px;*/
+    width: 8000%;
+    height: 30px;
+  }
+
+  .qimo8 .qimo div {
+    float: left;
+  }
+
+  .qimo8 .qimo ul {
+    float: left;
+    height: 30px;
+    overflow: hidden;
+    zoom: 1;
+  }
+
+  .qimo8 .qimo ul li {
+    float: left;
+    line-height: 30px;
+    list-style: none;
+  }
+
+  .qimo8 li a {
+    margin-right: 10px;
+    color: #444444;
+  }
+}

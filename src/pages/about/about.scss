@@ -1,0 +1,16 @@
+page-about {
+  /*头部*/
+  #header{
+    background: white;
+    border-bottom: solid 0.5px #cccccc;
+  }
+  #header .title {
+    font-size: 18px;
+    font-weight: 200;
+    padding-top: 0.5rem;
+  }
+  #header .back-btn{
+    background: none;
+    text-align: center;
+  }
+}

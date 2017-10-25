@@ -1,0 +1,39 @@
+<!--
+  Generated template for the UserPhotoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header id="header">
+  <ion-row>
+    <ion-col col-4>
+      <ion-buttons>
+        <button class="back-btn" (click)="back()">
+          <ion-icon name="arrow-back" style="font-size: 30px"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col col-4 text-center>
+      <ion-icon class="title">我的相册</ion-icon>
+    </ion-col>
+    <ion-col col-4></ion-col>
+  </ion-row>
+</ion-header>
+
+
+<ion-content padding>
+  <ul>
+    <li *ngFor="let img of userImg;let i = index">
+      <div *ngIf="i % 2 == 0"  [innerHTML]="img"></div>
+    </li>
+  </ul>
+  <ul>
+    <li *ngFor="let img of userImg;let i = index">
+      <div *ngIf="i % 2 == 1"  [innerHTML]="img"></div>
+    </li>
+  </ul>
+  <!--<ul>-->
+    <!--<li *ngFor="let img of userImg" [innerHTML]="img"></li>-->
+  <!--</ul>-->
+
+</ion-content>

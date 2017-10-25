@@ -1,0 +1,43 @@
+page-city {
+  #header {
+    background: white;
+    border-bottom: solid 0.5px #cccccc;
+  }
+  #header .title {
+    font-size: 18px;
+    font-weight: 200;
+    padding-top: 0.5rem;
+  }
+  #header .back-btn {
+    background: none;
+    text-align: center;
+  }
+  .segment-button {
+    background:#e9e9e9 !important;
+    color: #666666 !important;
+    padding: 18px!important;
+    font-size: 14px !important;
+    margin-left: -10px !important;
+    text-align: center !important;
+    line-height: 1px !important;
+    margin-bottom: -10px !important;
+    border: none !important;
+    border-radius: 0 !important;
+
+  }
+  .segment-activated {
+    background: white !important;
+    color: #666666 !important;
+  }
+  .search{
+    //margin-left: 10px;
+  }
+  .search input{
+    border: none;
+    color: #8f8f8f;
+    background: #e9e9e9;
+    text-align: center;
+    border-radius: 10px;
+  }
+}
+
