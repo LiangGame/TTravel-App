@@ -23,9 +23,15 @@ import {CityPage} from '../pages/city/city';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
+
 // 导入服务
 import {GlobalPropertyService} from '../services/global-property.service';
 import {LocalStorage} from '../services/local-storage.service';
+
+import {SearchScenicPipe} from '../Pipes/search-scenic.pipe';
+import {ThemeStringPipe} from '../Pipes/theme-string.pipe';
+import {TopicStringPipe} from '../Pipes/topic-string.pipe';
+import {SearchNotesPipe} from '../Pipes/search-notes.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +48,11 @@ import {LocalStorage} from '../services/local-storage.service';
     SettingPage,
     AboutPage,
     UserIndexPage,
-    CityPage
+    CityPage,
+    SearchScenicPipe,
+    ThemeStringPipe,
+    TopicStringPipe,
+    SearchNotesPipe
   ],
   imports: [
     BrowserModule,

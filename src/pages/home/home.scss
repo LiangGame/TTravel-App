@@ -1,3 +1,71 @@
 page-home {
+  .search{
+    margin-left: 10px;
+    input{
+      border: none;
+      color: #8f8f8f;
+    }
+    span{
+      width: 34px;
+      height: 34px;
+      padding: -2px;
+      //border: 1.5px solid  white;
+      margin-left: -4px;
+      background-color: white;
+      color: black;
+    }
+  }
+  ._container{
+    text-align: center;
+  }
+  .content{
+    padding-left: 15px;
+    padding-right: 15px;
 
+  h1{
+    margin: 10px auto;
+  }
+  .img_1{
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+  .c1,h2{
+    width: 90%;
+    margin: 0!important;
+    padding: 0!important;
+    text-align: left;
+  }
+    .p1{
+      float: left;
+    }
+  .s1{
+    margin-top: 10px;
+    position: relative;
+    float: left!important;
+    width: 36px;
+    height: 36px;
+    padding: 4px;
+    background: #fff;
+    border-radius: 50%;
+    .lazy{
+      vertical-align: top;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+  }
+    .img_2{
+      float: right;
+    }
+    .title{
+      position: relative;
+      margin-bottom: 20px;
+      display: inline;
+    }
+  }
 }
