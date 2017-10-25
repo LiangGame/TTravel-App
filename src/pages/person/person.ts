@@ -52,6 +52,7 @@ export class PersonPage {
     });
 
   }
+
   // 页面加载完毕触发。
   // ionViewLoaded(){
   //   setInterval(function () {

@@ -1,16 +1,17 @@
-<ion-header>
-  <ion-navbar>
-    <div col-12 class="search">
-      <input col-10 type="text" placeholder="搜索目的地">
-      <span col-2>搜索</span>
+<ion-header style="padding: 0 !important;">
+  <ion-navbar  style="padding: 0 !important;">
+    <div (click)="tosearch()" col-12 class="search" style="padding: 0 5px !important;">
+      <input col-12 type="button" value="搜索目的地">
+      <!--<span col-2>搜索</span>-->
     </div>
   </ion-navbar>
 </ion-header>
-<ion-content >
+
+<ion-content>
   <ion-grid>
     <ion-row>
       <div col-12 class="img">
-        <img src="../../assets/destination/icon.jpg" height="150px" width="100%">
+        <img (click)="tophoto()" src="../../assets/destination/icon.jpg" height="150px" width="100%">
       </div>
       <div class="didian" (click)="tocity()">
         <p>江苏</p>
@@ -19,6 +20,7 @@
       </div>
     </ion-row>
   </ion-grid>
+
   <div padding style="margin-top: 30px">
     <ion-segment [(ngModel)]="pet">
       <ion-segment-button value="俯瞰城市">俯瞰城市</ion-segment-button>
@@ -26,6 +28,7 @@
       <ion-segment-button value="古迹遗址">古迹遗址</ion-segment-button>
     </ion-segment>
   </div>
+
   <div [ngSwitch]="pet">
     <ion-list style="margin-top: -40px;" *ngSwitchCase="'俯瞰城市'">
       <div col-6 style="float: left">
@@ -70,6 +73,7 @@
       </div>
     </ion-list>
   </div>
+
   <ion-list>
     <span class="list-zy">自由行攻略</span>
     <ion-item>
