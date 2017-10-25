@@ -1,6 +1,10 @@
 page-user-index {
+
+  .item-inner {
+    border-bottom: none !important;
+  }
   /*头部*/
-  #header{
+  #header {
     background: rgba(255, 255, 255, 0);
     height: 42px;
   }
@@ -9,16 +13,16 @@ page-user-index {
     font-weight: 200;
     padding-top: 0.5rem;
   }
-  #header .back-btn{
+  #header .back-btn {
     background: none;
     text-align: center;
   }
 
   //头部信息
-  .fixed-content,.scroll-content{
+  .fixed-content, .scroll-content {
     margin: 0 !important;
   }
-  .user_topInfo{
+  .user_topInfo {
     width: 100%;
     height: 230px;
     background: url("../../assets/images/background/cbg0612.jpg") no-repeat;
@@ -27,25 +31,118 @@ page-user-index {
     padding-top: 42px;
     padding-left: 16px;
   }
-  .user_icon img{
+  .user_icon img {
     width: 65px !important;
     height: 65px !important;
     border-radius: 50%;
   }
-  .user_name{
+  .user_name {
     font-size: 24px;
     color: white;
   }
-  .user_lv{
+  .user_lv {
     overflow: hidden;
     background: white;
     padding: 2px 3px;
     color: #f53d3d;
   }
-  .update{
+  .update {
     display: inline-block;
     color: white;
     padding: 5px 15px;
     border: 1px solid white;
+  }
+
+  // main
+
+  .user_index_menu {
+    background: #f6f6f6 !important;
+    border: none !important;
+    color: #333333 !important;
+  }
+
+  /*.check_container {
+    padding: 8px 16px;
+    font-size: 18px;
+    border-top: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+  }
+  .check_num {
+    display: inline-block;
+    float: right;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+  }
+
+  .check_toggle {
+    display: none;
+    transition: 5s;
+  }*/
+
+  //足迹
+  .card-background-page {
+
+    img {
+      height: 150px;
+    }
+
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 62%;
+      width: 100%;
+      color: #fff;
+    }
+
+  }
+
+  // 收藏
+
+  .collect_bottom span {
+    font-size: 14px !important;
+    color: #666;
+  }
+
+  // 照片
+
+  .photo_album{
+    margin: 0 !important;
+  }
+  .photo_album ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .photo_album ul li {
+    float: left;
+  }
+  .photo_album img{
+    padding: 5px;
+    border: solid 1px #ccc;
+    height: 180px;
+  }
+
+  // 覆盖默认样式
+  .segment-activated {
+    background: #FEDC2A !important;
+    color: white !important;
   }
 }
