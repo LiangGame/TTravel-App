@@ -5,7 +5,7 @@ import { ScenicPage } from '../scenic/scenic';
 import { NotesPage } from '../notes/notes';
 import { StrategyPage } from '../strategy/strategy';
 import { AlbumPage } from '../album/album';
-
+// import {ParticularsPage} from '../particulars/particulars';
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -16,6 +16,7 @@ export class TabsPage {
   tab3Root = NotesPage;
   tab4Root = StrategyPage;
   tab5Root = AlbumPage;
+  // tab6Root = ParticularsPage;
 
   constructor() {
 
