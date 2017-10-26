@@ -19,4 +19,5 @@ export class ParticularsPage {
 back(){
   this.viewCtrl.dismiss();
 }
+
 }

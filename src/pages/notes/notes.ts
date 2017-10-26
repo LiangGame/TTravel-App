@@ -10,12 +10,7 @@ import {ParticularsPage} from "../particulars/particulars";
 })
 export class NotesPage {
   datas=[
-    {
-    title:'在路上',
-    img:'05.jpeg',
-    content:'jdkhflsfdiefsfsggdfggdgdgdfgfdgdgdgdgfefifhu',
-    authorName:'Tom',
-  },
+
     {
       title:'在路上',
       img:'05.jpeg',
@@ -39,6 +34,22 @@ export class NotesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NotesPage');
+  }
+
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      this.datas.push(
+        {
+          title:'在路上',
+          img:'05.jpeg',
+          content:'jdkhflsfdiefsfsggdfggdjjhiljojiigdgdfgfdgdgdgdgfefifhu',
+          authorName:'五',
+        }
+      )
+      // infiniteScroll.complete();
+    }, 500);
   }
 
   toparticulars(){

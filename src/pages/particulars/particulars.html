@@ -23,8 +23,8 @@
     </ion-col>
   </ion-row>
   <!--图片部分==============-->
-  <ion-row style="height: 220px">
-    <ion-col col-12>
+  <ion-row>
+    <ion-col col-12 style="padding: 0">
       <img src="../../assets/05.jpeg"/>
     </ion-col>
   </ion-row>
@@ -36,11 +36,11 @@
 
 <ion-content padding>
   <ion-row>
-    <ion-col col-12>
-      <ion-icon class="title">回忆走过的七彩之路</ion-icon>
+    <ion-col col-12 class="title">
+      回忆走过的七彩之路
     </ion-col>
   </ion-row>
-  <ion-row style="height: 50px;line-height: 50px">
+  <ion-row>
     <ion-col col-4>2017-10-20</ion-col>
     <ion-col col-4>
       <ion-icon name="star"></ion-icon>
@@ -49,13 +49,19 @@
       0
     </ion-col>
     <!--<ion-col col-3>-->
-
+      <ion-fab right bottom style="position: fixed">
+        <button ion-fab class="fenxiang"><ion-icon name="arrow-dropleft" style="color:white;font-weight: 600"></ion-icon></button>
+        <ion-fab-list side="top">
+          <button ion-fab style="background-color: #FEDC2A"><ion-icon name="logo-facebook"></ion-icon></button>
+          <button ion-fab style="background-color: #FEDC2A"><ion-icon name="logo-twitter"></ion-icon></button>
+        </ion-fab-list>
+      </ion-fab>
     <!--</ion-col>-->
   </ion-row>
   <ion-row>
 
     <ion-col col-3>
-      <ion-avatar item-start>
+      <ion-avatar item-center>
         <img src="../../assets/icon/favicon.ico" height="50" width="50"/>
       </ion-avatar>
     </ion-col>
@@ -75,17 +81,17 @@
     <ion-row>
      <ion-col col-12 class="classify">
        <ion-row style="margin-top: 8px">
-         <ion-col col-6>
+         <ion-col col-8>
            <ion-icon name="clock"></ion-icon>
            出发时间/2017/10/2
          </ion-col>
-         <ion-col col-5>
+         <ion-col col-6>
            <ion-icon name="time"></ion-icon>
            出行天数/10天
          </ion-col>
        </ion-row>
-       <ion-row style="margin-top: 5px">
-         <ion-col col-6>
+       <ion-row>
+         <ion-col col-8>
            <ion-icon name="clock"></ion-icon>
            人均费用/3578RMB
          </ion-col>
@@ -112,7 +118,7 @@
       </ion-row>
       <!--图片=========-->
       <ion-row>
-        <ion-col col-12 style="height: 260px;padding: 0">
+        <ion-col col-12 style="padding: 0">
           <img src="../../assets/icon/gg0.2c3edc729721710d78d5.png"/>
         </ion-col>
       </ion-row>
@@ -134,7 +140,7 @@
       </ion-row>
       <!--图片=========-->
       <ion-row>
-        <ion-col col-12 style="height: 260px;padding: 0">
+        <ion-col col-12 style="padding: 0">
           <img src="../../assets/icon/gg0.2c3edc729721710d78d5.png"/>
         </ion-col>
       </ion-row>
@@ -156,7 +162,7 @@
       </ion-row>
       <!--图片=========-->
       <ion-row>
-        <ion-col col-12 style="height: 260px;padding: 0">
+        <ion-col col-12 style="padding: 0">
           <img src="../../assets/icon/gg0.2c3edc729721710d78d5.png"/>
         </ion-col>
       </ion-row>

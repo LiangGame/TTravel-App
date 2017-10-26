@@ -28,6 +28,7 @@ import {UserLvPage} from '../pages/user-lv/user-lv';
 import {PhotoPage} from '../pages/photo/photo';
 import {SearchPage} from '../pages/search/search';
 import {LiebiaoPage} from '../pages/liebiao/liebiao';
+import {DetailPage} from '../pages/detail/detail';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -67,7 +68,8 @@ import {ThemeStringPipe} from '../Pipes/theme-string.pipe';
     CityPage,
     PhotoPage,
     SearchPage,
-    LiebiaoPage
+    LiebiaoPage,
+    DetailPage
   ],
   imports: [
     BrowserModule,
@@ -102,7 +104,8 @@ import {ThemeStringPipe} from '../Pipes/theme-string.pipe';
     CityPage,
     PhotoPage,
     SearchPage,
-    LiebiaoPage
+    LiebiaoPage,
+    DetailPage
   ],
   providers: [
     StatusBar,
