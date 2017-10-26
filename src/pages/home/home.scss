@@ -1,19 +1,36 @@
 page-home {
   .search{
-    margin-left: 10px;
+    //margin-left: 10px;
+    float: right;
+    //margin-top: -37px;
     input{
       border: none;
       color: #8f8f8f;
     }
-    span{
-      width: 34px;
-      height: 34px;
-      padding: -2px;
-      //border: 1.5px solid  white;
-      margin-left: -4px;
-      background-color: white;
-      color: black;
+
+    //span{
+    //  width: 34px;
+    //  height: 34px;
+    //  padding: -2px;
+    //  //border: 1.5px solid  white;
+    //  margin-left: -4px;
+    //  background-color: white;
+    //  color: black;
+    //}
+  }
+  .mycity{
+
+    margin-left: 15px;
+    display: inline-block;
+    p{
+      margin-bottom:0;
+      font-size: 16px;
+      color: white;
+      padding: 3px 7px;
+      background-color: cornflowerblue;
+      border-radius: 10px;
     }
+
   }
   ._container{
     text-align: center;
