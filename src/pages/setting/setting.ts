@@ -50,6 +50,7 @@ export class SettingPage {
   sign_out(){
     let confirm = this.alertCtrl.create({
       title: '提示',
+      // message: `<img src="../../assets/images/bird.png">`,
       message: '确认退出当前账号?',
       buttons: [
         {
