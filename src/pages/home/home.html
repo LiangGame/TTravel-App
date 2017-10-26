@@ -1,17 +1,63 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <div col-12 class="search">
+      <input col-10 type="text" placeholder="搜索目的地">
+      <span col-2>搜索</span>
+    </div>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <h5>苏州</h5>
+  <ion-grid>
+    <ion-row class="_container">
+      <ion-col col-3 class="menu">攻略</ion-col>
+      <ion-col col-3 class="menu">游记</ion-col>
+      <ion-col col-3 class="menu">目的地</ion-col>
+      <ion-col col-3 class="menu">相册</ion-col>
+    </ion-row>
+  </ion-grid>
+<div class="content">
+  <h1>每日推荐</h1>
+  <ion-slides loop="true" (ionSlideDidChange)="slideChanged()" #slides style="height: auto">
+    <ion-slide *ngFor="let topic of _notes">
+      <div>
+        <div id="indexNotes" class="img_1" [innerHTML]="topic?.content">
+          <!--<img class="img" src="http://owpv96eru.bkt.clouddn.com{{topic?.coverimg}}" alt="">-->
+        </div>
+        <ion-col class="c1">
+          <h2>{{topic?.title | topicString |themeString:15}}</h2>
+        </ion-col>
+        <ion-col class="s1">
+          <img class="lazy" src="{{url}}/uploads/{{topic?.icon}}" alt="{{topic?.userName}}"/>
+        </ion-col>
+        <p class="p1">{{topic?.userName}}</p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+</div>
+  <ion-item *ngFor="let topic of _notes">
+    <div class="fl" col-6>
+    <div>
+      <h2 class="title">{{topic?.title | topicString |themeString:10}}</h2>
+    </div>
+
+    <ion-col class="s1">
+      <img class="lazy" src="{{url}}/uploads/{{topic?.icon}}" alt="{{topic?.userName}}"/>
+    </ion-col>
+    <h5 class="p2">{{topic?.userName}}</h5>
+    </div>
+
+    <div class="fr" col-6>
+      <div class="img_2" [innerHTML]="topic?.content">
+        <!--<img class="img" src="http://owpv96eru.bkt.clouddn.com{{topic?.coverimg}}" alt="">-->
+      </div>
+    </div>
+
+
+
+  </ion-item>
+
 </ion-content>
+
