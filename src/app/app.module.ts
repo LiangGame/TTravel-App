@@ -4,7 +4,7 @@ import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
-
+import {FormsModule} from '@angular/forms';
 
 import {AlbumPage} from '../pages/album/album';
 import {NotesPage} from '../pages/notes/notes';
@@ -15,6 +15,7 @@ import {TabsPage} from '../pages/tabs/tabs';
 import {PersonPage} from '../pages/person/person';
 import {LoginPage} from '../pages/login/login';
 import {RegistPage} from '../pages/regist/regist';
+import {ParticularsPage} from '../pages/particulars/particulars';
 import {SettingPage} from '../pages/setting/setting'
 import {AboutPage} from '../pages/about/about';
 import {UserIndexPage} from '../pages/user-index/user-index'
@@ -27,6 +28,8 @@ import {UserLvPage} from '../pages/user-lv/user-lv';
 import {PhotoPage} from '../pages/photo/photo';
 import {SearchPage} from '../pages/search/search';
 import {LiebiaoPage} from '../pages/liebiao/liebiao';
+import {DetailPage} from '../pages/detail/detail';
+import {UpdataUserInfoPage} from '../pages/updata-user-info/updata-user-info'
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -56,6 +59,7 @@ import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
     StrategyPage,
     LoginPage,
     RegistPage,
+    ParticularsPage,
     SettingPage,
     AboutPage,
     UserCollectPage,
@@ -71,19 +75,22 @@ import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
     UserPhotoPage,
     UserFootPrintPage,
     UserLvPage,
+    UpdataUserInfoPage,
     // 管道
     LocaleDatePipe,
     ThemeStringPipe,
     CityPage,
     PhotoPage,
     SearchPage,
-    LiebiaoPage
+    LiebiaoPage,
+    DetailPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -97,6 +104,7 @@ import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
     StrategyPage,
     LoginPage,
     RegistPage,
+    ParticularsPage,
     SettingPage,
     AboutPage,
     UserIndexPage,
@@ -111,7 +119,9 @@ import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
     CityPage,
     PhotoPage,
     SearchPage,
-    LiebiaoPage
+    LiebiaoPage,
+    DetailPage,
+    UpdataUserInfoPage,
   ],
   providers: [
     StatusBar,

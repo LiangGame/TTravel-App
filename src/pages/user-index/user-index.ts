@@ -1,10 +1,13 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import {Component,Renderer2} from '@angular/core';
+import {IonicPage, NavController, NavParams, ViewController,ModalController} from 'ionic-angular';
 import {Storage} from '@ionic/storage';
+
+import {UpdataUserInfoPage} from '../updata-user-info/updata-user-info'
 
 // 导入服务
 import {PersonalCenterService} from '../../services/personal-center.service';
 import {GlobalPropertyService} from '../../services/global-property.service';
+
 
 /**
  * Generated class for the UserIndexPage page.
@@ -39,6 +42,8 @@ export class UserIndexPage {
               public viewCtrl: ViewController,
               private storage: Storage,
               private glo: GlobalPropertyService,
+              public renderer: Renderer2,
+              public modalCtrl: ModalController,
               private personSer:PersonalCenterService) {
     // 服务器IP地址
     this.url = this.glo.serverUrl;
@@ -112,16 +117,15 @@ export class UserIndexPage {
     })
   }
 
-/*
-  // 展开
-  check_toggle(event){
-    let display = event.target.nextElementSibling.style.display;
-    if(display === 'none'){
-      event.target.nextElementSibling.style.display = 'block';
-    }else{
-      event.target.nextElementSibling.style.display = 'none';
-    }
-  }*/
+  // // 展开
+  // check_toggle(event){
+  //   let display = event.target.nextElementSibling.style.display;
+  //   if(display === 'none'){
+  //     event.target.nextElementSibling.style.display = 'block';
+  //   }else{
+  //     event.target.nextElementSibling.style.display = 'none';
+  //   }
+  // }
 
 
   // 获取足迹
@@ -175,4 +179,9 @@ export class UserIndexPage {
     })
   }
 
+  // 跳转修改信息
+  updata(){
+    let modal = this.modalCtrl.create(UpdataUserInfoPage);
+    modal.present();
+  }
 }

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,Renderer2 } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 import {Storage} from '@ionic/storage';
-
+import {GlobalPropertyService} from '../../services/global-property.service'
 /**
  * Generated class for the UserLvPage page.
  *
@@ -13,16 +13,24 @@ import {Storage} from '@ionic/storage';
 @Component({
   selector: 'page-user-lv',
   templateUrl: 'user-lv.html',
+  providers:[GlobalPropertyService]
 })
 export class UserLvPage {
   userlv:number;
   lv:number;
   lvName:string;
+  hLv:number;
+  userName:string;
+  userIcon:string;
+  url:string;
 
   constructor(public navCtrl: NavController,
               public viewCtrl: ViewController,
               private storage: Storage,
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              public renderer: Renderer2,
+              public glo:GlobalPropertyService) {
+    this.url = this.glo.serverUrl;
   }
 
   ionViewDidLoad() {
@@ -30,7 +38,9 @@ export class UserLvPage {
       this.storage.get('user').then((result) => {
         if (result) {
           this.userlv = result[0].userlv;
-          this.lvName = result[0].lvName
+          this.lvName = result[0].lvName;
+          this.userName = result[0].userName;
+          this.userIcon = result[0].icon;
           console.log(this.userlv);
         } else {
           return;
@@ -49,14 +59,15 @@ export class UserLvPage {
         }else {
           this.lv = 6000;
         }
-
+        this.hLv = this.lv - this.userlv;
         let rang = document.querySelector('.range-knob-handle');
         let left = +this.userlv / this.lv * 100;
         let right = (100 - left);
-        document.querySelector('.range-bar-active').style.right = right + '%';
-        console.log(left);
-        rang.style.left = left + '%';
-        console.log(rang.style.left);
+        let el = document.querySelector('.range-bar-active');
+
+        this.renderer.setStyle(el, 'right', right + '%');
+        this.renderer.setStyle(rang, 'left', left + '%');
+
       });
     })
     console.log('ionViewDidLoad UserLvPage');

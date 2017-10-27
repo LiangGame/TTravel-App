@@ -52,6 +52,24 @@ page-user-lv {
     box-shadow: 0 0 5px 2px #ff9d00 !important;
   }
 
-
+  //表格
+  table{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 25px;
+    text-align: center;
+  }
+  table tr th{
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    border: solid 1px #ff9d00;
+  }
+  table tr td{
+    padding: 5px;
+    font-size: 16px;
+    width: 50%;
+    border: solid 1px #ff9d00;
+  }
 }
 

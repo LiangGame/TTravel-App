@@ -26,23 +26,30 @@
     <ion-grid>
       <ion-row style="padding: 15px 0">
         <ion-col col-9>
-          <h1>Game</h1>
+          <h1>{{userName}}</h1>
         </ion-col>
         <ion-col col-3>
           <ion-icon class="user_icon">
-            <img src="../../assets/images/background/bg02.jpg" alt="">
+            <img src="{{url}}/uploads/{{userIcon}}">
+            <!--{{userIcon}}-->
+            <!--<img src="../../assets/images/background/bg02.jpg" alt="">-->
           </ion-icon>
         </ion-col>
       </ion-row>
       <ion-row style="padding: 15px 0">
         <ion-col col-6>
-          <h5>当前等级 <span>Lv.{{lvName}}</span></h5>
+          <h5 style="padding-left: 14px">
+            当前等级
+            <span style="font-size: 12px;color: #f53d3d;background: white;padding: 3px 5px;border: solid 1px #ccc">
+              Lv.{{lvName}}
+            </span>
+          </h5>
         </ion-col>
         <ion-col col-6>
-          升级还需 58 经验
+          升级还需 {{hLv}} 经验
         </ion-col>
         <ion-col col-12>
-          <ion-list>
+          <ion-list #rang>
             <ion-range ng-reflect-model="50" [(ngModel)]="singleValue" class="_range" pin="false" dualKnobs="false"></ion-range>
           </ion-list>
         </ion-col>
@@ -50,6 +57,40 @@
     </ion-grid>
   </div>
   <div class="bottom">
-
+    <table>
+      <tr>
+        <th colspan="2">等级对照表</th>
+      </tr>
+      <tr>
+        <td>贫农</td>
+        <td>0-100</td>
+      </tr>
+      <tr>
+        <td>中农</td>
+        <td>100-500</td>
+      </tr>
+      <tr>
+        <td>富农</td>
+        <td>500-1500</td>
+      </tr>
+      <tr>
+        <td>地主</td>
+        <td>1500-3000</td>
+      </tr>
+      <tr>
+        <td>土豪</td>
+        <td>3000-5000</td>
+      </tr>
+      <tr>
+        <td>富豪</td>
+        <td>5000-5000+</td>
+      </tr>
+    </table>
+  </div>
+  <div text-center style="background: #f6f6f6">
+    <h3>用户成长指南</h3>
+    <p>每登陆成功一次增加2时光</p>
+    <p>每评论成功一次增加5时光</p>
+    <p>每发表一篇游记增加10时光</p>
   </div>
 </ion-content>

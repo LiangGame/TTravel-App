@@ -17,6 +17,7 @@ export class TabsPage {
   tab4Root = StrategyPage;
   tab5Root = PersonPage;
 
+
   constructor() {
 
   }

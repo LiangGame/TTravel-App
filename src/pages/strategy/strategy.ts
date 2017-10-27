@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Component,ViewChild} from '@angular/core';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { Slides } from 'ionic-angular';
+import {DetailPage} from "../detail/detail";
 /**
  * Generated class for the StrategyPage page.
  *
@@ -14,12 +15,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'strategy.html',
 })
 export class StrategyPage {
+  @ViewChild(Slides) slides: Slides;
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              // public viewCtrl: ViewController,
+              public ModCtrl: ModalController
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StrategyPage');
   }
-
+  // back(){
+  //   this.viewCtrl.dismiss();
+  // }
+  todetail(){
+    let model=this.ModCtrl.create(DetailPage);
+    model.present();
+  }
 }

@@ -1,3 +1,41 @@
 page-regist {
+  #header .title {
+    font-size: 16px;
+    font-weight: 200;
+    padding-top: 0.5rem;
+  }
+  #header .back-btn{
+    background: none;
+    text-align: center;
+  }
+  #registForm input {
+    height: 3em;
+    width: 100%;
+    margin: 0.7rem 0;
+    border: solid 1px #ccc;
+    border-radius: 0.5rem;
+    padding-left: 1em;
+
+  }
+  #registForm input:focus {
+    border: solid 1px #FEDC2A;
+    box-shadow: 0 0 10px -2px #FEDC2A;
+  }
+  .error-message{
+    color: #ff0f0f;
+    margin: 0;
+  }
+  .place-btn{
+    height: 3.5em;
+    margin: 0.7rem 0;
+    border-radius: 0.5rem;
+    background: #FEDC2A !important;
+  }
+  .regist-btn{
+    background: #FEDC2A !important;
+  }
+  .regist-btn:active{
+    background: #FEDC2A !important;
+  }
 
 }
