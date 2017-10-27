@@ -5,7 +5,6 @@ import {MyApp} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 
-
 import {AlbumPage} from '../pages/album/album';
 import {NotesPage} from '../pages/notes/notes';
 import {ScenicPage} from '../pages/scenic/scenic';
@@ -27,6 +26,7 @@ import {UserLvPage} from '../pages/user-lv/user-lv';
 import {PhotoPage} from '../pages/photo/photo';
 import {SearchPage} from '../pages/search/search';
 import {LiebiaoPage} from '../pages/liebiao/liebiao';
+import {XiangqPage} from '../pages/xiangq/xiangq';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -37,6 +37,7 @@ import {LocalStorage} from '../services/local-storage.service';
 // 管道
 import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
 import {ThemeStringPipe} from '../Pipes/theme-string.pipe';
+import {IndexNotesPipe} from '../Pipes/index-notes.pipe';
 @NgModule({
   declarations: [
     MyApp,
@@ -62,10 +63,12 @@ import {ThemeStringPipe} from '../Pipes/theme-string.pipe';
     // 管道
     LocaleDatePipe,
     ThemeStringPipe,
+    IndexNotesPipe,
     CityPage,
     PhotoPage,
     SearchPage,
-    LiebiaoPage
+    LiebiaoPage,
+    XiangqPage
   ],
   imports: [
     BrowserModule,
@@ -99,7 +102,8 @@ import {ThemeStringPipe} from '../Pipes/theme-string.pipe';
     CityPage,
     PhotoPage,
     SearchPage,
-    LiebiaoPage
+    LiebiaoPage,
+    XiangqPage
   ],
   providers: [
     StatusBar,
@@ -110,4 +114,5 @@ import {ThemeStringPipe} from '../Pipes/theme-string.pipe';
   ],
 })
 export class AppModule {
+
 }
