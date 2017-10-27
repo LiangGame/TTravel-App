@@ -50,16 +50,18 @@
   </ion-slides>
 <hr>
 </div>
-  <ion-item *ngFor="let topic of _notes">
+
+  <ion-row *ngFor="let topic of _notes">
+    <div class="all">
     <div class="fl" col-6>
     <div>
-      <h2 class="title">{{topic?.title | topicString |themeString:10}}</h2>
+      <h2 class="title">{{topic?.title | topicString |themeString:20}}</h2>
     </div>
 
     <ion-col class="s1">
       <img class="lazy" src="{{url}}/uploads/{{topic?.icon}}" alt="{{topic?.userName}}"/>
     </ion-col>
-    <h5 class="p2">{{topic?.userName}}</h5>
+    <p class="p2">{{topic?.userName}}</p>
     </div>
 
     <div class="fr" col-6>
@@ -69,8 +71,8 @@
     </div>
 
 
-
-  </ion-item>
+    </div>
+  </ion-row>
 
 </ion-content>
 

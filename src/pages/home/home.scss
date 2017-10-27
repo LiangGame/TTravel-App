@@ -68,9 +68,12 @@ page-home {
   }
     .p1{
       float: left;
+      color: gray;
     }
     .p2{
+      color: gray;
       margin-top: 20px;
+
     }
 
   .s1{
@@ -90,6 +93,12 @@ page-home {
     }
 
   }
+    .all{
+      border-bottom: 1px solid gainsboro;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 15px;
+    }
     .fr{
       float: right;
     }
