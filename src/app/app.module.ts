@@ -29,6 +29,7 @@ import {PhotoPage} from '../pages/photo/photo';
 import {SearchPage} from '../pages/search/search';
 import {LiebiaoPage} from '../pages/liebiao/liebiao';
 import {DetailPage} from '../pages/detail/detail';
+import {CommentPage} from '../pages/comment/comment';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -74,6 +75,7 @@ import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
     UserPhotoPage,
     UserFootPrintPage,
     UserLvPage,
+    CommentPage,
     // 管道
     LocaleDatePipe,
     ThemeStringPipe,
@@ -117,7 +119,8 @@ import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
     PhotoPage,
     SearchPage,
     LiebiaoPage,
-    DetailPage
+    DetailPage,
+    CommentPage
   ],
   providers: [
     StatusBar,

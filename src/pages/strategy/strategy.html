@@ -8,7 +8,13 @@
 
 
 <ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingText="努力加载中..." ></ion-refresher-content>
+  </ion-refresher>
+
   <ion-grid>
+
     <ion-list (click)="todetail()">
       <ion-row>
         <ion-col col-12>
@@ -78,6 +84,9 @@
     </ion-row>
   </ion-list>
 
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 
   </ion-grid>
 </ion-content>
