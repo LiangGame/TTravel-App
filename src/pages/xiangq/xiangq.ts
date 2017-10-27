@@ -43,7 +43,7 @@ export class XiangqPage {
         that.scenicSer.getScenicItem(id, function (result) {
           if (result) {
             that.scenics = result[0];
-            that.images =(result[0].url.split(','));
+            that.images = result[0].url.split(',');
             console.log(result);
           }
         })

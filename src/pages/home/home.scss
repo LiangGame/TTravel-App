@@ -20,10 +20,11 @@ page-home {
   }
   .mycity{
 
-    margin-left: 15px;
+    //margin-left: 15px;
     display: inline-block;
     p{
-      margin-bottom:0;
+      margin: 0;
+      //margin-bottom:0;
       font-size: 16px;
       color: white;
       padding: 3px 7px;
@@ -36,11 +37,14 @@ page-home {
     text-align: center;
   }
   .content{
-    padding-left: 15px;
-    padding-right: 15px;
+    //padding-left: 15px;
+    //padding-right: 15px;
 
   h1{
-    margin: 10px auto;
+    margin: 0;
+    margin-top: 8px !important;
+    padding: 0;
+    //margin: 10px auto;
   }
   .img_1{
     width: 100%;
@@ -61,7 +65,7 @@ page-home {
       }
     }
   .c1,h2{
-    width: 90%;
+    //width: 90%;
     margin: 0!important;
     padding: 0!important;
     text-align: left;
@@ -95,9 +99,9 @@ page-home {
   }
     .all{
       border-bottom: 1px solid gainsboro;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      padding-bottom: 15px;
+      //margin-top: 10px;
+      //margin-bottom: 10px;
+      //padding-bottom: 15px;
     }
     .fr{
       float: right;

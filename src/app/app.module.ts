@@ -39,14 +39,13 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {GlobalPropertyService} from '../services/global-property.service';
 import {LocalStorage} from '../services/local-storage.service';
 
-import {SearchScenicPipe} from '../Pipes/search-scenic.pipe';
-import {TopicStringPipe} from '../Pipes/topic-string.pipe';
-import {SearchNotesPipe} from '../Pipes/search-notes.pipe';
-
 // 管道
 import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
 import {ThemeStringPipe} from '../Pipes/theme-string.pipe';
 import {IndexNotesPipe} from '../Pipes/index-notes.pipe';
+import {SearchScenicPipe} from '../Pipes/search-scenic.pipe';
+import {TopicStringPipe} from '../Pipes/topic-string.pipe';
+import {SearchNotesPipe} from '../Pipes/search-notes.pipe';
 
 @NgModule({
   declarations: [

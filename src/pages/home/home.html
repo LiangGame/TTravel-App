@@ -8,7 +8,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <div class="mycity"><p>{{cityinfo}}</p></div>
   <!--<ion-grid>-->
     <!--<ion-row class="_container">-->
@@ -53,7 +53,7 @@
 
   <ion-row *ngFor="let topic of _notes">
     <div class="all">
-    <div class="fl" col-6>
+    <div class="fl" col-7>
     <div>
       <h2 class="title">{{topic?.title | topicString |themeString:20}}</h2>
     </div>
@@ -64,7 +64,7 @@
     <p class="p2">{{topic?.userName}}</p>
     </div>
 
-    <div class="fr" col-6>
+    <div class="fr" col-5>
       <div class="img_2" [innerHTML]="topic?.content">
         <!--<img class="img" src="http://owpv96eru.bkt.clouddn.com{{topic?.coverimg}}" alt="">-->
       </div>
