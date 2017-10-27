@@ -4,6 +4,7 @@ import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import {FormsModule} from '@angular/forms';
 
 import {AlbumPage} from '../pages/album/album';
 import {NotesPage} from '../pages/notes/notes';
@@ -14,6 +15,7 @@ import {TabsPage} from '../pages/tabs/tabs';
 import {PersonPage} from '../pages/person/person';
 import {LoginPage} from '../pages/login/login';
 import {RegistPage} from '../pages/regist/regist';
+import {ParticularsPage} from '../pages/particulars/particulars';
 import {SettingPage} from '../pages/setting/setting'
 import {AboutPage} from '../pages/about/about';
 import {UserIndexPage} from '../pages/user-index/user-index'
@@ -26,6 +28,8 @@ import {UserLvPage} from '../pages/user-lv/user-lv';
 import {PhotoPage} from '../pages/photo/photo';
 import {SearchPage} from '../pages/search/search';
 import {LiebiaoPage} from '../pages/liebiao/liebiao';
+import {DetailPage} from '../pages/detail/detail';
+import {UpdataUserInfoPage} from '../pages/updata-user-info/updata-user-info'
 import {XiangqPage} from '../pages/xiangq/xiangq';
 
 import {StatusBar} from '@ionic-native/status-bar';
@@ -34,10 +38,16 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 // 导入服务
 import {GlobalPropertyService} from '../services/global-property.service';
 import {LocalStorage} from '../services/local-storage.service';
+
+import {SearchScenicPipe} from '../Pipes/search-scenic.pipe';
+import {TopicStringPipe} from '../Pipes/topic-string.pipe';
+import {SearchNotesPipe} from '../Pipes/search-notes.pipe';
+
 // 管道
 import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
 import {ThemeStringPipe} from '../Pipes/theme-string.pipe';
 import {IndexNotesPipe} from '../Pipes/index-notes.pipe';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -50,16 +60,23 @@ import {IndexNotesPipe} from '../Pipes/index-notes.pipe';
     StrategyPage,
     LoginPage,
     RegistPage,
+    ParticularsPage,
     SettingPage,
     AboutPage,
     UserCollectPage,
     UserIndexPage,
+    CityPage,
+    SearchScenicPipe,
+    ThemeStringPipe,
+    TopicStringPipe,
+    SearchNotesPipe,
     CityPage,
     UserIndexPage,
     UserNotesPage,
     UserPhotoPage,
     UserFootPrintPage,
     UserLvPage,
+    UpdataUserInfoPage,
     // 管道
     LocaleDatePipe,
     ThemeStringPipe,
@@ -68,13 +85,16 @@ import {IndexNotesPipe} from '../Pipes/index-notes.pipe';
     PhotoPage,
     SearchPage,
     LiebiaoPage,
-    XiangqPage
+    XiangqPage,
+    LiebiaoPage,
+    DetailPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -88,6 +108,7 @@ import {IndexNotesPipe} from '../Pipes/index-notes.pipe';
     StrategyPage,
     LoginPage,
     RegistPage,
+    ParticularsPage,
     SettingPage,
     AboutPage,
     UserIndexPage,
@@ -103,7 +124,10 @@ import {IndexNotesPipe} from '../Pipes/index-notes.pipe';
     PhotoPage,
     SearchPage,
     LiebiaoPage,
-    XiangqPage
+    XiangqPage,
+    LiebiaoPage,
+    DetailPage,
+    UpdataUserInfoPage,
   ],
   providers: [
     StatusBar,

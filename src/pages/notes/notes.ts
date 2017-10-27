@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import {ParticularsPage} from "../particulars/particulars";
 
-/**
- * Generated class for the NotesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,12 +9,51 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'notes.html',
 })
 export class NotesPage {
+  datas=[
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    {
+      title:'在路上',
+      img:'05.jpeg',
+      content:'jdkhflsfdiefefifhu',
+      authorName:'Tom',
+    },
+    {
+      title:'在路上',
+      img:'05.jpeg',
+      content:'jdkhflsfdiefefifhu',
+      authorName:'Tom',
+    }
+  ]
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    // public viewCtrl: ViewController,
+    public ModCtrl: ModalController
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NotesPage');
   }
 
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      this.datas.push(
+        {
+          title:'在路上',
+          img:'05.jpeg',
+          content:'jdkhflsfdiefsfsggdfggdjjhiljojiigdgdfgfdgdgdgdgfefifhu',
+          authorName:'五',
+        }
+      )
+      // infiniteScroll.complete();
+    }, 500);
+  }
+
+  toparticulars(){
+    let model=this.ModCtrl.create(ParticularsPage);
+    model.present();
+  }
 }

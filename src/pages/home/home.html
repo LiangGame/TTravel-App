@@ -1,17 +1,78 @@
+
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <img col-3 src="../../assets/images/TTravel--LOGO.png" height="36" width="80"/>
+    <div col-9 class="search">
+      <input col-12 type="text" (click)="toliebiao()" placeholder="搜索">
+    </div>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <div class="mycity"><p>{{cityinfo}}</p></div>
+  <!--<ion-grid>-->
+    <!--<ion-row class="_container">-->
+      <!--<ion-col col-3 class="menu" (click)="toraiders()">-->
+        <!--<ion-icon name="jet" style="font-size: 2.5em;color: #ffb411;"></ion-icon>-->
+        <!--<p>攻略</p>-->
+      <!--</ion-col>-->
+      <!--<ion-col col-3 class="menu right_no" (click)="todestination()">-->
+        <!--<ion-icon name="pin" style="font-size: 2.5em;color: firebrick;"></ion-icon>-->
+        <!--<p>目的地</p>-->
+      <!--</ion-col>-->
+      <!--<ion-col col-3 class="menu bottom_no" (click)="toNotes()">-->
+        <!--<ion-icon name="bookmarks" style="font-size: 2.5em;color: #ffc67b;"></ion-icon>-->
+        <!--<p>游记</p>-->
+      <!--</ion-col>-->
+      <!--<ion-col col-3 class="menu bottom_no" (click)="toPhoto()">-->
+        <!--<ion-icon name="images" style="font-size: 2.5em;color: #5aa2ff;"></ion-icon>-->
+        <!--<p>相册</p>-->
+      <!--</ion-col>-->
+    <!--</ion-row>-->
+  <!--</ion-grid>-->
+<div class="content">
+  <h1>每日推荐</h1>
+  <ion-slides loop="true" (ionSlideDidChange)="slideChanged()" #slides style="height: auto">
+    <ion-slide *ngFor="let topic of _notes">
+      <div>
+        <div id="indexNotes" class="img_1" [innerHTML]="topic?.content">
+          <!--<img class="img" src="http://owpv96eru.bkt.clouddn.com{{topic?.coverimg}}" alt="">-->
+        </div>
+        <ion-col class="c1">
+          <h2>{{topic?.title | topicString |themeString:15}}</h2>
+        </ion-col>
+        <ion-col class="s1">
+          <img class="lazy" src="{{url}}/uploads/{{topic?.icon}}" alt="{{topic?.userName}}"/>
+        </ion-col>
+        <p class="p1">{{topic?.userName}}</p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+<hr>
+</div>
+
+  <ion-row *ngFor="let topic of _notes">
+    <div class="all">
+    <div class="fl" col-6>
+    <div>
+      <h2 class="title">{{topic?.title | topicString |themeString:20}}</h2>
+    </div>
+
+    <ion-col class="s1">
+      <img class="lazy" src="{{url}}/uploads/{{topic?.icon}}" alt="{{topic?.userName}}"/>
+    </ion-col>
+    <p class="p2">{{topic?.userName}}</p>
+    </div>
+
+    <div class="fr" col-6>
+      <div class="img_2" [innerHTML]="topic?.content">
+        <!--<img class="img" src="http://owpv96eru.bkt.clouddn.com{{topic?.coverimg}}" alt="">-->
+      </div>
+    </div>
+
+
+    </div>
+  </ion-row>
+
 </ion-content>
+

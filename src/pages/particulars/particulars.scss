@@ -1,0 +1,61 @@
+page-particulars {
+  #header{
+    background: white;
+    border-bottom: solid 0.5px #cccccc;
+  }
+  .title {
+    font-size: 20px;
+    font-weight: 400;
+    padding-top: 0.5rem;
+    color: #FF9D00;
+    text-align: center;
+  }
+  #header .back-btn{
+    background: none;
+    text-align: center;
+  }
+.author{
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #FF9D00;
+}
+  .author button{
+    border-radius: 5px;
+    width: 50px;
+    height: 30px;
+    background-color: white;
+    //border: solid 1px gainsboro;
+    color: #FF9D00;
+  }
+  .classify{
+    //width: 360px;
+    //height: 80px;
+    border: dashed 1px gainsboro;
+    border-radius: 5px;
+  }
+.state{
+  width: 130px;
+  height: 50px;
+  border-left: solid 1px gainsboro;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  font-weight: 500;
+}
+  .hr{
+    //height: 50px;
+    border-bottom: dashed 3px #FF9D00;
+    text-align: center;
+    //line-height: 50px;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 5px;
+    color: #FF9D00;
+  }
+  .fenxiang{
+    background-color: #FEDC2A;
+  }
+}

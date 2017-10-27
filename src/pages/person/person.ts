@@ -100,4 +100,8 @@ export class PersonPage {
     let modal = this.modalCtrl.create(UserPhotoPage);
     modal.present();
   }
+  toUserLv(){
+    let modal = this.modalCtrl.create(UserLvPage);
+    modal.present();
+  }
 }
