@@ -91,19 +91,6 @@ export class PersonalCenterService {
     )
   }
 
-  // getUserImages(userId, callback) {
-  //   let _head = new HttpHeaders({token: this.ls.get('token')});
-  //   // body.title = body.title.notesTitle;
-  //   this.http.post(this.url + '/personal-center/getUserImages', userId, {headers: _head}).subscribe(
-  //     function (result) {
-  //       callback(result);
-  //     },
-  //     function (error) {
-  //       console.log(error.message);
-  //     }
-  //   )
-  // }
-
   getUserImages(userId):Promise<any> {
     let _head = new HttpHeaders({token: this.token});
     return this.http.post(this.url + '/personal-center/getUserImages', userId, {headers: _head})

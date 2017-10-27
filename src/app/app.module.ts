@@ -4,7 +4,7 @@ import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
-
+import {FormsModule} from '@angular/forms';
 
 import {AlbumPage} from '../pages/album/album';
 import {NotesPage} from '../pages/notes/notes';
@@ -29,6 +29,7 @@ import {PhotoPage} from '../pages/photo/photo';
 import {SearchPage} from '../pages/search/search';
 import {LiebiaoPage} from '../pages/liebiao/liebiao';
 import {DetailPage} from '../pages/detail/detail';
+import {UpdataUserInfoPage} from '../pages/updata-user-info/updata-user-info'
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -74,6 +75,7 @@ import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
     UserPhotoPage,
     UserFootPrintPage,
     UserLvPage,
+    UpdataUserInfoPage,
     // 管道
     LocaleDatePipe,
     ThemeStringPipe,
@@ -87,7 +89,8 @@ import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -117,7 +120,8 @@ import {LocaleDatePipe} from '../Pipes/locale-date.pipe';
     PhotoPage,
     SearchPage,
     LiebiaoPage,
-    DetailPage
+    DetailPage,
+    UpdataUserInfoPage,
   ],
   providers: [
     StatusBar,

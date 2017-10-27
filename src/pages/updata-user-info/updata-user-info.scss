@@ -1,0 +1,66 @@
+page-updata-user-info {
+  /*头部*/
+  #header{
+    background: white;
+    border-bottom: solid 0.5px #cccccc;
+  }
+  #header .title {
+    font-size: 18px;
+    font-weight: 200;
+    padding-top: 0.5rem;
+  }
+  #header .back-btn{
+    background: none;
+    text-align: center;
+  }
+
+  .savebtn{
+    background: none;
+    font-size: 18px;
+    font-weight: 400;
+    color: #5aa2ff;
+    line-height: 32px;
+  }
+  //头像
+  .user_icon img {
+    width: 65px !important;
+    height: 65px !important;
+    border-radius: 50%;
+  }
+
+  #userInfo{
+    .row{
+      margin: 8px 0 !important;
+      padding: 8px 0;
+      border-top: solid 0.5px #cfcfcf;
+      border-bottom: solid 0.5px #cfcfcf;
+    }
+    label{
+      font-size: 16px;
+      color: #666666;
+    }
+    input{
+      font-size: 16px;
+      border: none !important;
+      background: none;
+      margin: 0 !important;
+      color: #333 !important;
+    }
+  }
+  #birthday{
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    ion-label{
+      padding-left: 5px;
+      color: #666;
+      font-size: 16px;
+    }
+  }
+
+
+  .item-inner{
+    border-bottom: none !important;
+  }
+}
