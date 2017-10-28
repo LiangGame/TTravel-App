@@ -17,6 +17,7 @@ declare var AMap: any;
 export class HomePage {
   @ViewChild(Slides) mySlides: Slides;
   _notes: any = [];
+  _scenic:any = [];
   user: any;
   reg: any = /<img\s+.*?>/g;
   url: any;
@@ -33,9 +34,11 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
+    this.getScenic();
     this.getNotes();
     this.getCity();
   }
+
   // toraiders(){
   //   let modal = this.modalCtrl.create(StrategyPage);
   //   modal.present();
@@ -71,7 +74,25 @@ export class HomePage {
       })
     })
   }
-
+  getScenic() {
+    let that = this;
+    that.indexSer.show_scenic(function (result) {
+      // console.log('成功')
+      if (result) {
+        for (let i = 0; i < result.length; i++) {
+          if (result[i].url == '' || result[i].url == null) {
+            continue;
+          } else {
+            result[i].url = (result[i].url).split(',');
+          }
+        }
+        that._scenic = result;
+        // console.log(that._scenic);
+      } else {
+        console.log("error")
+      }
+    })
+  }
   getNotes() {
     let that = this;
     that.indexSer.show_notes(function (result) {
@@ -90,6 +111,35 @@ export class HomePage {
       }
     })
   };
+  doRefresh(refresher) {
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      // this._notes=[
+      //   {
+      //     postId:'001',
+      //     icon_url:'assets/img/smile.png',
+      //     post:'微软总经理',
+      //     salary:'120-1000',
+      //     address:'苏州仁爱路1号'
+      //   }
+      // ];
+      refresher.complete();
+    }, 2000);
+  }
 
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+    setTimeout(() => {
+      this._notes.push(
+        {
+          title:'ddvdss',
+          icon:'sfds',
+          userName:'sfsdfs',
+          content:'sdfdssdf',
+        }
+      )
+      // infiniteScroll.complete();
+    }, 500);
+  }
 
 }
