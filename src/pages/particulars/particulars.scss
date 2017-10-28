@@ -1,6 +1,6 @@
 page-particulars {
   #header{
-    background: white;
+    background: rgba(255, 255, 255, 0);
     border-bottom: solid 0.5px #cccccc;
   }
   .title {
@@ -58,4 +58,9 @@ page-particulars {
   .fenxiang{
     background-color: #FEDC2A;
   }
+
+
+  //.fixed-content,.scroll-content{
+  //  margin: 0 !important;
+  //}
 }

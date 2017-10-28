@@ -16,31 +16,14 @@ page-liebiao {
     overflow: hidden;
     width: 815px;
   }
-
-  .qimo8 .qimo { /*width:99999999px;*/
-    width: 8000%;
-    height: 30px;
-  }
-
-  .qimo8 .qimo div {
-    float: left;
-  }
-
-  .qimo8 .qimo ul {
-    float: left;
-    height: 30px;
-    overflow: hidden;
-    zoom: 1;
-  }
-
-  .qimo8 .qimo ul li {
-    float: left;
-    line-height: 30px;
-    list-style: none;
-  }
-
-  .qimo8 li a {
-    margin-right: 10px;
-    color: #444444;
+.gundong{
+  font-size: 18px;
+  padding: 5px!important;
+  background: #FEDC2A;
+}
+  @media screen and (max-width: 320px){
+    .scenic_info{
+      font-size: 10px;
+    }
   }
 }

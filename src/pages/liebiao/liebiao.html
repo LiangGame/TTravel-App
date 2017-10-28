@@ -10,19 +10,39 @@
   </ion-row>
 </ion-header>
 
-<ion-content padding>
-  <div id="demo" class="qimo8">
-    <div class="qimo">
-      <div id="demo1">
-        <ul>
-          <li><a>景点概况</a></li>
-          <li><a>城市很秀气，风景和人文感觉都很好。</a></li>
-          <li><a>知名旅游景点非常多，苏州园林则是最有名的景点。</a></li>
-          <li><a>山塘街夜景很美，很有特色，观前街很热闹小吃也多。</a></li>
-          <li><a>温婉的江南水乡是一座适合生活的安逸城市。</a></li>
-        </ul>
-      </div>
-      <div id="demo2"></div>
-    </div>
+<ion-content style="margin-top:10px">
+  <span style="font-size: 18px;padding: 20px 10px">景点概况:</span>
+  <div class="gundong">
+    <marquee behavior="300" direction="left">
+      城市很秀气，风景和人文感觉都很好。知名旅游景点非常多，苏州园林则是最有名的景点。山塘街夜景很美，很有特色，观前街很热闹小吃也多。温婉的江南水乡是一座适合生活的安逸城市.
+    </marquee>
   </div>
+
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content style="font-size: 10px" refreshingText="正在努力加载中..."></ion-refresher-content>
+    </ion-refresher>
+    <ion-list >
+       <ion-row (click)="toxiangq()" style="margin-top: 2px!important;padding: 5px !important;" *ngFor="let item of items" >
+         <!--(click)="itemTapped($event, item)"-->
+         <ion-col col-8 style="float:left;">
+               <h4 style="margin-top: 0px!important;margin-bottom: 0!important;">{{item.post}}</h4>
+               <span style="font-size: 12px!important;">{{item.address}}</span>
+             </ion-col>
+             <ion-col col-4>
+               <img style="height: 80px" src="{{item.icon_url}}">
+             </ion-col>
+
+       </ion-row>
+    </ion-list>
+
+  <!--上拉加载-->
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>
+

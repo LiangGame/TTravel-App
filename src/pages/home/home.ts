@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, Slides,ModalController} from 'ionic-angular';
+import {NavController, Slides, ModalController} from 'ionic-angular';
 // , ModalController
 import {IndexService} from '../../services/index.service';
 import {GlobalPropertyService} from "../../services/global-property.service";
@@ -53,10 +53,12 @@ export class HomePage {
     console.log(activeIndex);
     this.mySlides.startAutoplay();
   }
-  toliebiao(){
+
+  toliebiao() {
     let model = this.ModalCtrl.create(SearchPage);
     model.present();
   }
+
   getCity(): Promise<any> {
     // 高德地图ip定位
     let that = this;
