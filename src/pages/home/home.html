@@ -19,7 +19,7 @@
     <h1>每日推荐</h1>
     <ion-slides loop="true" (ionSlideDidChange)="slideChanged()" #slides style="height: auto">
       <ion-slide *ngFor="let theme of _scenic">
-        <div>
+        <div (click)="tuxiang(theme.id)">
           <div id="indexNotes" class="img_1">
             <img class="img" src="{{qnUrl}}{{theme?.url[1]}}" alt="">
           </div>
@@ -36,7 +36,7 @@
 
 <div>
     <ion-row *ngFor="let topic of _notes">
-      <div class="all">
+      <div class="all" (click)="toparticulars(topic.id)">
         <div class="fl" col-6>
           <div>
             <h2 class="title">{{topic?.title | topicString |themeString:20}}</h2>

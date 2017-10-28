@@ -1,11 +1,13 @@
-import {Component, ViewChild} from '@angular/core';
-import {NavController, Slides, ModalController} from 'ionic-angular';
+import {Component, ViewChild,} from '@angular/core';
+import {NavController, Slides,ModalController} from 'ionic-angular';
 // , ModalController
 import {IndexService} from '../../services/index.service';
 import {GlobalPropertyService} from "../../services/global-property.service";
 import {SearchPage} from '../search/search';
 // import {StrategyPage} from '../strategy/strategy';
 // import {ScenicPage} from '../scenic/scenic';
+import {XiangqPage} from '../xiangq/xiangq';
+import {ParticularsPage} from "../particulars/particulars";
 
 declare var AMap: any;
 
@@ -28,6 +30,7 @@ export class HomePage {
   constructor(public navCtrl: NavController,
               public ModalCtrl: ModalController,
               public indexSer: IndexService,
+              public ModCtrl: ModalController,
               public glo: GlobalPropertyService) {
     this.url = this.glo.serverUrl;
     this.qnUrl = this.glo.qiniuUrl;
@@ -53,12 +56,10 @@ export class HomePage {
     console.log(activeIndex);
     this.mySlides.startAutoplay();
   }
-
-  toliebiao() {
+  toliebiao(){
     let model = this.ModalCtrl.create(SearchPage);
     model.present();
   }
-
   getCity(): Promise<any> {
     // 高德地图ip定位
     let that = this;
@@ -113,6 +114,15 @@ export class HomePage {
       }
     })
   };
+
+  tuxiang(id){
+    let model = this.ModalCtrl.create(XiangqPage,{'id': id});
+    model.present();
+  }
+  toparticulars(id){
+    let model=this.ModCtrl.create(ParticularsPage,{'id': id});
+    model.present();
+  }
   doRefresh(refresher) {
     setTimeout(() => {
       console.log('Async operation has ended');
@@ -132,14 +142,14 @@ export class HomePage {
   doInfinite(infiniteScroll) {
     console.log('Begin async operation');
     setTimeout(() => {
-      this._notes.push(
-        {
-          title:'ddvdss',
-          icon:'sfds',
-          userName:'sfsdfs',
-          content:'sdfdssdf',
-        }
-      )
+      // this._notes.push(
+      //   {
+      //     title:'ddvdss',
+      //     icon:'sfds',
+      //     userName:'sfsdfs',
+      //     content:'sdfdssdf',
+      //   }
+      // )
       // infiniteScroll.complete();
     }, 500);
   }
