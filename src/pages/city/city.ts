@@ -34,18 +34,6 @@ export class CityPage {
   back() {
     this.viewCtrl.dismiss( );
   }
-  xuanzhong(event){
-    event.target.className
-
-   // let xian= event.target.className = 'btn01';
-
-   // if() {
-   //   event.target.className = 'btn01';
-   // }else {
-   //   event.target.className = 'btn_first';
-   // }
-    // console.log(event.target);
-  }
 
   getcity() {
     let that = this;

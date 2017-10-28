@@ -8,13 +8,21 @@
       </ion-buttons>
     </ion-col>
     <ion-col col-4 text-center>
-      <ion-icon class="title">相册</ion-icon>
+      <ion-icon class="title">旅游相册</ion-icon>
     </ion-col>
     <ion-col col-4></ion-col>
   </ion-row>
 </ion-header>
 
-
 <ion-content padding>
-
+  <ul>
+    <li *ngFor="let img of notes;let i = index">
+      <div *ngIf="i % 2 == 0"  [innerHTML]="img?.content"></div>
+    </li>
+  </ul>
+  <ul>
+    <li *ngFor="let img of notes;let i = index">
+      <div *ngIf="i % 2 == 1"  [innerHTML]="img?.content"></div>
+    </li>
+  </ul>
 </ion-content>

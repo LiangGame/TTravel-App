@@ -68,7 +68,7 @@ export class LoginPage {
     // console.log(data);
     this.userSer.login(data).then((result) => {
       if (result) {
-        // console.log(result);
+        console.log(result);
         if (result.stateCode === 1) {
           this.navCtrl.push(TabsPage);
 

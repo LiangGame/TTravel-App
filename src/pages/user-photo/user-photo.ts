@@ -6,13 +6,6 @@ import {Storage} from '@ionic/storage';
 import {PersonalCenterService} from '../../services/personal-center.service';
 import {GlobalPropertyService} from '../../services/global-property.service';
 
-/**
- * Generated class for the UserPhotoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-user-photo',

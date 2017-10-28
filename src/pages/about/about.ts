@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams ,ViewController} from 'ionic-angula
   templateUrl: 'about.html',
 })
 export class AboutPage {
-
+// jian=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController) {

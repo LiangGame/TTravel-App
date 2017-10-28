@@ -38,4 +38,15 @@ page-regist {
     background: #FEDC2A !important;
   }
 
+
+  ._disabled{
+    width: 144px;
+    height: 34px;
+    background: #ffcf5b;
+    border: solid 1px #ffcf5b;
+    color: #333;
+    border-radius: 4px;
+    margin-left: 4px;
+  }
+
 }

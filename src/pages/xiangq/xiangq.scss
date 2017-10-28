@@ -1,4 +1,4 @@
-page-liebiao {
+page-xiangq {
   #header {
     background: white;
     border-bottom: solid 0.5px #cccccc;
@@ -12,18 +12,14 @@ page-liebiao {
     background: none;
     text-align: center;
   }
-  .qimo8 {
-    overflow: hidden;
-    width: 815px;
+  .col-p1,.col-p{
+    padding: 0 !important;
+    background:#f6f6f6;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 100
   }
-.gundong{
-  font-size: 18px;
-  padding: 5px!important;
-  background: #FEDC2A;
-}
-  @media screen and (max-width: 320px){
-    .scenic_info{
-      font-size: 10px;
-    }
+  .col-p1{
+    text-indent: 2em;
   }
 }

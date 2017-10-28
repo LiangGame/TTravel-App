@@ -1,3 +1,75 @@
-page-user-lv {
+//range-ios-bar-height = 10px;
 
+page-user-lv {
+  h1,h5{
+    margin: 0;
+    padding: 0;
+  }
+  /*头部*/
+  #header {
+    background: white;
+    border-bottom: solid 0.5px #cccccc;
+  }
+  #header .title {
+    font-size: 18px;
+    font-weight: 200;
+    padding-top: 0.5rem;
+  }
+  #header .back-btn {
+    background: none;
+    text-align: center;
+  }
+  //top
+  .top{
+    background: #f6f6f6;
+  }
+  .user_icon img{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+  }
+
+  //._range{
+  //  background: radial-gradient(#ffc752 20%, #ff9d00 85%); /* 标准的语法 */
+  //  box-shadow: 0 0 5px 2px #ff9d00;
+  //}
+
+
+  .range-bar{
+    height: 10px !important;
+  }
+  .range-bar-active{
+    background: radial-gradient(#ffc752 20%, #ff9d00 85%) !important; /* 标准的语法 */
+    box-shadow: 0 0 5px 2px #ff9d00 !important;
+  }
+  .range-knob-handle{
+    margin-top: -12px !important;
+  }
+  .range-knob{
+    width: 20px !important;
+    height: 20px !important;
+    background: radial-gradient(#ffc752 20%, #ff9d00 85%) !important; /* 标准的语法 */
+    box-shadow: 0 0 5px 2px #ff9d00 !important;
+  }
+
+  //表格
+  table{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 25px;
+    text-align: center;
+  }
+  table tr th{
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    border: solid 1px #ff9d00;
+  }
+  table tr td{
+    padding: 5px;
+    font-size: 16px;
+    width: 50%;
+    border: solid 1px #ff9d00;
+  }
 }
+
