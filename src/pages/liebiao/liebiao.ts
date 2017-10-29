@@ -31,36 +31,6 @@ export class LiebiaoPage {
     this.qnUrl=this.Glo.qiniuUrl
     // this.xiang();
   }
-  //下拉
-  doRefresh(refresher) {
-
-    // setTimeout(() => {
-    //   // console.log('努力加载中...');
-    //
-    //   // <!--更新数据部分-->
-    //   this.items.unshift({
-    //     postId:'001',
-    //     icon_url:'assets/destination/icon.jpg',
-    //     post:'dffggdf',
-    //     address:'dffrtytrgthhjtyhbdrsgergfsfsdfe'
-    //   });
-    //   refresher.complete();
-    // }, 500);
-  }
-  // 上拉
-  // doInfinite(infiniteScroll) {
-  //   console.log('Begin async operation');
-  //   setTimeout(() => {
-  //     this.items.push({
-  //       postId:'003',
-  //       icon_url:'assets/destination/icon.jpg',
-  //       post:'ibm总经理',
-  //       address:'苏州仁爱路3号'
-  //     });
-  //     infiniteScroll.complete();
-  //   }, 500);
-  // }
-
   ionViewDidLoad() {
     let key=this.navParams.get('key');
     this.xiang(key);
@@ -72,7 +42,6 @@ export class LiebiaoPage {
     this.viewCtrl.dismiss();
   }
   xiang(key){
-    this.searchtxt = key;
     if (key) {
       let that = this;
       that.ScenicSer.get_scenic(function (result) {
@@ -94,6 +63,8 @@ export class LiebiaoPage {
             // console.log(result[i].url);
           }
           that.data = result;
+          that.searchtxt = key;
+
         }
         else {
           // console.log('error');

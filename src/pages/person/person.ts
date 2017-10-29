@@ -14,13 +14,6 @@ import {UserPhotoPage} from '../user-photo/user-photo';
 import {UserFootPrintPage} from '../user-foot-print/user-foot-print';
 import {UserLvPage} from '../user-lv/user-lv';
 
-/**
- * Generated class for the PersonPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-person',
@@ -74,12 +67,10 @@ export class PersonPage {
     let login = this.modalCtrl.create(LoginPage);
     login.present();
   }
-
   setting() {
     let modal = this.modalCtrl.create(SettingPage);
     modal.present();
   }
-
   toIndex(){
     let modal = this.modalCtrl.create(UserIndexPage);
     modal.present();

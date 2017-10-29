@@ -98,7 +98,7 @@ export class PersonalCenterService {
   }
 
   addFootPorint(body, callback) {
-    let _head = new HttpHeaders({token: this.ls.get('token')});
+    let _head = new HttpHeaders({token: this.token});
 
     this.http.post(this.url + '/personal-center/addFootPrint', body, {headers: _head}).subscribe(
       function (result) {

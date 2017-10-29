@@ -11,30 +11,17 @@ import {GlobalPropertyService} from '../../services/global-property.service'
 })
 export class ParticularsPage {
   notes: any;
-  iconUrl: any;
-  userIcon: any;
   notesId: any;
-  comments: any;
   commentText: string = '';
   noLogin: boolean = false;
-  commentInfo: string;
-  credits: number;
-  topInfoError: any;
   url: any;
   qnUrl: any;
-  notesUrl: string;
-
-  _title:any;_source:any;_sourceUrl:any;_showcount:any;_desc:any;
   _summary:any = '@-时光游-';
-  _site:any;
   _width:any = 600;
   _height = 600;
   _top = (screen.height-this._height)/2;
   _left = (screen.width-this._width)/2;
-  _url:any;
   notesImg: any;
-
-
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
