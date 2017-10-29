@@ -115,8 +115,9 @@ export class NotesPage {
   //   }, 500);
   // }
 
-  toparticulars(){
-    let model=this.ModCtrl.create(ParticularsPage);
+  toparticulars(id){
+    // console.log(id);
+    let model=this.ModCtrl.create(ParticularsPage,{'id':id});
     model.present();
   }
   doRefresh(refresher) {
@@ -183,7 +184,7 @@ export class NotesPage {
         }
         // that.hotNotes = result;
         // console.log('相关阅读');
-        console.log(that.hotNotes);
+        // console.log(that.hotNotes);
       }
     })
   }

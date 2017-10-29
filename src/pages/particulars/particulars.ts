@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController,ModalController } from 'ionic-angular';
 import {CommentPage} from "../comment/comment";
 import {NotesService}from '../../services/notes.service';
-
+import {GlobalPropertyService} from '../../services/global-property.service'
 @IonicPage()
 @Component({
   selector: 'page-particulars',
   templateUrl: 'particulars.html',
-  providers:[NotesService]
+  providers:[NotesService,GlobalPropertyService]
 })
 export class ParticularsPage {
   notes: any;
@@ -35,59 +35,55 @@ export class ParticularsPage {
   notesImg: any;
 
 
-
-
-
-
-
-
-
-
-
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
               public ModCtrl: ModalController,
-              public NotServ:NotesService
+              public NotServ:NotesService,
+              public glo:GlobalPropertyService,
+
               ) {
+    this.url=this.glo.serverUrl
   }
 
   ionViewDidLoad() {
+    let id=this.navParams.get('id');
+    this.get_note(id);
+    // console.log(id);
     console.log('ionViewDidLoad ParticularsPage');
   }
 back(){
   this.viewCtrl.dismiss();
 }
-
-  tocomment(){
-    let model=this.ModCtrl.create(CommentPage);
+  tocomment(id){
+    // console.log(id);
+    let model=this.ModCtrl.create(CommentPage,{'id':id});
+  // ,'content':content
     model.present();
   }
   get_note(id) {
-    // this.route.params.subscribe((params: Params) => {
-    //   let id = (<Params>this.route.queryParams).value['key'];
-      this.notesId = {notesId: id}
+      this.notesId = {notesId: id};
       if (id) {
         let that = this;
         id = {"id": id};
         that.NotServ.getnotesItem(id, function (result) {
           if (result) {
+            console.log(result);
             result[0].content = (result[0].content).replace(/&nbsp;/ig, '');
-
-
             if ((result[0].content).match(/<img\s+.*?>/g)) {
               that.notesImg = [];
               for (let i of ((result[0].content).match(/<img\s+.*?>/g))) {
                 that.notesImg.push(i.match(/src=[\'\"]?([^\'\"]*)[\'\"]?/i)[1]);
               }
             }
-            // console.log(that.notesImg);
+
             that.notes = result[0];
-            // console.log(that.notes);
           }
+
         })
+
       }
-    // });
+
   }
 
 }
