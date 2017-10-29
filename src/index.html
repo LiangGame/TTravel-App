@@ -17,11 +17,18 @@
 
   <!-- cordova.js required for cordova apps -->
   <script src="cordova.js"></script>
-
-  <link href="build/main.css" rel="stylesheet">
-  <!--高德地图ip定位-->
   <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=95dcdfa3cc6aff9d9a33fbb2d0beefdc&plugin=AMap.CitySearch"></script>
 
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.error('Error', err));
+    }
+  </script>-->
+
+  <link href="build/main.css" rel="stylesheet">
   <style>
     /*覆盖默认样式*/
     .action-sheet-cancel {

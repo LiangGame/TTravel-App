@@ -123,34 +123,23 @@ export class HomePage {
     let model=this.ModCtrl.create(ParticularsPage,{'id': id});
     model.present();
   }
+
   doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
     setTimeout(() => {
       console.log('Async operation has ended');
-      // this._notes=[
-      //   {
-      //     postId:'001',
-      //     icon_url:'assets/img/smile.png',
-      //     post:'微软总经理',
-      //     salary:'120-1000',
-      //     address:'苏州仁爱路1号'
-      //   }
-      // ];
       refresher.complete();
     }, 2000);
   }
 
   doInfinite(infiniteScroll) {
     console.log('Begin async operation');
+
     setTimeout(() => {
-      // this._notes.push(
-      //   {
-      //     title:'ddvdss',
-      //     icon:'sfds',
-      //     userName:'sfsdfs',
-      //     content:'sdfdssdf',
-      //   }
-      // )
-      // infiniteScroll.complete();
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
     }, 500);
   }
 
