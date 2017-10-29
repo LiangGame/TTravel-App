@@ -31,10 +31,16 @@ page-user-index {
     padding-top: 42px;
     padding-left: 16px;
   }
-  .user_icon img {
+  .user_icon img,.user_icon input {
     width: 65px !important;
     height: 65px !important;
     border-radius: 50%;
+  }
+  .user_icon ion-input{
+    position: absolute;
+    margin-top: -65px;
+    z-index: 8;
+    opacity: 0;
   }
   .user_name {
     font-size: 24px;
