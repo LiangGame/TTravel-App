@@ -22,6 +22,7 @@ export class ScenicPage {
   personalinfo:any;
 
   _scenic: any = [];
+  allscenic: any = [];
   user: any;
   qnUrl:any;
   //默认选中
@@ -85,7 +86,7 @@ export class ScenicPage {
   getScenic() {
     let that = this;
     that.IndexSer.show_scenic(function (result) {
-      console.log(result)
+      that.allscenic = result;
       if (result) {
         for (let i = 0; i < result.length; i++) {
           if (result[i].url == '' || result[i].url == null) {
@@ -120,5 +121,23 @@ export class ScenicPage {
     //
     let model = this.ModalCtrl.create(XiangqPage,{'id': id});
     model.present();
+  }
+
+//上拉加载
+  doInfinite(infiniteScroll){
+    let len = this._scenic.length;
+      setTimeout(() => {
+        for (var i = len; i < len+1; i++) {
+          if(i <this.allscenic.length){
+            this._scenic.push( this.allscenic[i] ); // 向末尾push数据
+            infiniteScroll.complete();
+          }
+          else{
+            infiniteScroll.enable(false)
+          }
+        }
+
+      }, 500);
+
   }
 }

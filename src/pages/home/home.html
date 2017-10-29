@@ -53,7 +53,10 @@
       </div>
     </ion-row>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="正在努力加载..."> // 提示文本
+    </ion-infinite-scroll-content>
   </ion-infinite-scroll>
 </div>
   </ion-content>

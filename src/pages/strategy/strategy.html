@@ -13,76 +13,23 @@
     <ion-refresher-content refreshingText="努力加载中..." ></ion-refresher-content>
   </ion-refresher>
 
-  <ion-grid>
+  <ion-grid style="padding: 0">
 
-    <ion-list (click)="todetail()">
+    <ion-list style="margin-bottom: 5px" *ngFor="let item of _scenic" (click)="todetail(item.id)">
       <ion-row>
         <ion-col col-12>
-          <img src="../../assets/05.jpeg"/>
+          <img src="{{qnUrl}}{{item?.coverImg}}"/>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class='title1'>一直在路上</ion-col>
+        <ion-col class='title1'>{{item.title}}</ion-col>
       </ion-row>
       <ion-row>
-        <ion-col col-12>
-          用尽了力气，认识了你们
-          用尽了力气，认识了你们
-          用尽了力气，认识了你们
-        </ion-col>
-      </ion-row>
-    </ion-list>
-    <ion-list (click)="todetail()">
-      <ion-row>
-        <ion-col col-12>
-          <img src="../../assets/05.jpeg"/>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class='title1'>一直在路上</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-12>
-          用尽了力气，认识了你们
-          用尽了力气，认识了你们
-          用尽了力气，认识了你们
+        <ion-col col-12 style="text-align: center;font-size: 16px">
+         {{item.info}}
         </ion-col>
       </ion-row>
     </ion-list>
-    <ion-list (click)="todetail()">
-    <ion-row>
-      <ion-col col-12>
-        <img src="../../assets/05.jpeg"/>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class='title1'>一直在路上</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-12>
-        用尽了力气，认识了你们
-        用尽了力气，认识了你们
-        用尽了力气，认识了你们
-      </ion-col>
-    </ion-row>
-  </ion-list>
-    <ion-list (click)="todetail()">
-    <ion-row>
-      <ion-col col-12>
-        <img src="../../assets/05.jpeg"/>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class='title1'>一直在路上</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-12>
-        用尽了力气，认识了你们
-        用尽了力气，认识了你们
-        用尽了力气，认识了你们
-      </ion-col>
-    </ion-row>
-  </ion-list>
 
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>

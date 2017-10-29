@@ -1,8 +1,9 @@
 <ion-header >
   <ion-navbar  style="padding: 0 !important;">
     <div col-12 class="search" style="margin-left:10px">
-      <input col-10  type="text" placeholder="搜索目的地">
-      <span (click)="toliebiao()"  col-2>搜索</span>
+      <span style="margin-left: 10px" (click)="back()"col-2>返回</span>
+      <input #searctxt col-8  type="text" placeholder="搜索目的地">
+      <span (click)="toliebiao(searctxt.value)"col-2>搜索</span>
     </div>
   </ion-navbar>
 </ion-header>

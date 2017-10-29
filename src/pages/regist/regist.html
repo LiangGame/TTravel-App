@@ -22,27 +22,27 @@
 
 
 <ion-content padding>
-  <form id="registForm" [formGroup]="registForm"  novalidate>
+  <form id="registForm" [formGroup]="registForm" (ngSubmit)="regist(registForm.value)" novalidate>
     <ion-row>
-      <ion-input type="tel" placeholder="请输入手机号" [formControl]="username" clearInput=true></ion-input>
+      <ion-input type="tel" placeholder="请输入手机号" [formControl]="telephone" clearInput=true></ion-input>
     </ion-row>
-    <ion-label *ngIf="username.hasError('required') && username.touched" class="error-message">* 请输入用户名</ion-label>
+    <ion-label *ngIf="telephone.hasError('required') && telephone.touched" class="error-message">* 请输入用户名</ion-label>
     <ion-label
-      *ngIf="(username.hasError('minlength')||username.hasError('maxlength')||username.hasError('pattern')) && username.touched"
+      *ngIf="(telephone.hasError('minlength')||telephone.hasError('maxlength')||telephone.hasError('pattern')) && telephone.touched"
       class="error-message">* 请输入正确的电话号码
     </ion-label>
 
     <ion-row>
       <ion-input type="text" placeholder="短信验证码"></ion-input>
-      <button col-4 class="place-btn" (click)="getPhoneCode(username.value)">{{get}}<span *ngIf="one">({{s}}秒后)</span></button>
+      <button col-4 class="place-btn" (click)="getPhoneCode(telephone.value)">{{get}}<span *ngIf="one">({{s}}秒后)</span></button>
     </ion-row>
 
     <ion-row>
-      <ion-input type="text" [formControl]="myname" clearInput=true  placeholder="昵称"></ion-input>
+      <ion-input type="text" [formControl]="userName" clearInput=true  placeholder="昵称"></ion-input>
     </ion-row>
 
     <ion-row>
-      <ion-label *ngIf="myname.hasError('required') && myname.touched" class="error-message">* 请输入昵称</ion-label>
+      <ion-label *ngIf="userName.hasError('required') && userName.touched" class="error-message">* 请输入昵称</ion-label>
     </ion-row>
 
     <ion-row>
@@ -54,7 +54,7 @@
     </ion-row>
 
       <div class="regist-btn-container">
-        <button type="submit" ion-button block class="regist-btn" [disabled]="!registForm.valid">完成注册，进入时光游</button>
+        <button type="submit" ion-button block class="regist-btn">完成注册，进入时光游</button>
       </div>
   </form>
 </ion-content>

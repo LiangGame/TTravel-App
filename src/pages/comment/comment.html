@@ -24,14 +24,15 @@
 
 <ion-content>
 <ion-grid>
-  <ion-list style="margin-bottom: 15px">
+  <ion-list style="margin-bottom: 15px" *ngFor="let item of comments">
     <ion-row>
       <ion-col col-3>
-        <img src="../../assets/icon/favicon.ico"/>
+        <img style="border-radius: 50%;height: 50px;width: 50px" src="{{url}}/uploads/{{item?.icon}}"/>
+        <!--<img src="../../assets/icon/favicon.ico"/>-->
       </ion-col>
       <ion-col col-4 style="padding-top: 15px">
-        <span>星卷卷 <button class="level">Lv10</button></span>
-        <span style="padding-top: 5px;display: block">2017-08-10</span>
+        <span>{{item?.userName}} <button class="level">Lv{{item?.lvName}}</button></span>
+        <span style="padding-top: 5px;display: block">{{item?.time|localeDate:'date'}}</span>
       </ion-col>
     </ion-row>
     <ion-row class="content">
@@ -64,3 +65,14 @@
   </ion-list>
 </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col col-10 class="fa_bo">
+      <input type="text" placeholder="请输入文字...">
+    </ion-col>
+    <ion-col>
+      <button class="bu_bu">发表</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

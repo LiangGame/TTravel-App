@@ -8,18 +8,21 @@ import {SearchPage} from '../search/search';
 // import {ScenicPage} from '../scenic/scenic';
 import {XiangqPage} from '../xiangq/xiangq';
 import {ParticularsPage} from "../particulars/particulars";
+import {NotesService} from '../../services/notes.service';
 
 declare var AMap: any;
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [IndexService, GlobalPropertyService]
+  providers: [IndexService,NotesService, GlobalPropertyService]
 })
 export class HomePage {
   @ViewChild(Slides) mySlides: Slides;
   _notes: any = [];
+  allNotes: any = [];
   _scenic:any = [];
+  hotNotes: any = [];
   user: any;
   reg: any = /<img\s+.*?>/g;
   url: any;
@@ -31,15 +34,17 @@ export class HomePage {
               public ModalCtrl: ModalController,
               public indexSer: IndexService,
               public ModCtrl: ModalController,
+              public NotServ: NotesService,
               public glo: GlobalPropertyService) {
     this.url = this.glo.serverUrl;
     this.qnUrl = this.glo.qiniuUrl;
+    this.getCity();
+
   }
 
   ionViewDidLoad() {
     this.getScenic();
     this.getNotes();
-    this.getCity();
   }
 
   // toraiders(){
@@ -114,6 +119,27 @@ export class HomePage {
       }
     })
   };
+  getHotNotes() {
+    let that = this;
+    that.NotServ.getHotNotes(function (result) {
+      if (result) {
+        for (let i = 0; i < result.length; i++) {
+          if ((result[i].content).match(that.reg)) {
+            that.hotNotes.push({coverimg: (result[i].content).match(that.reg), notes: result[i]})
+          }
+          if (result[i].comment == '' || result[i].comment == null) {
+            result[i].comment = 0;
+          }
+          if (result[i].like == '' || result[i].like == null) {
+            result[i].like = 0;
+          }
+        }
+        // that.hotNotes = result;
+        // console.log('相关阅读');
+        console.log(that.hotNotes);
+      }
+    })
+  }
 
   tuxiang(id){
     let model = this.ModalCtrl.create(XiangqPage,{'id': id});
@@ -126,19 +152,26 @@ export class HomePage {
 
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
-
     setTimeout(() => {
       console.log('Async operation has ended');
+      this.getNotes();
+
       refresher.complete();
     }, 2000);
   }
 
   doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
-
+    let len=this._notes.length;
     setTimeout(() => {
-
-      console.log('Async operation has ended');
+      for(var i=len;i<len+3;i++){
+        if(i <this.allNotes.length){
+          this._notes.push(this.allNotes[i] ); // 向末尾push数据
+          infiniteScroll.complete();
+        }
+        else{
+          infiniteScroll.enable(false)
+        }
+      }
       infiniteScroll.complete();
     }, 500);
   }
