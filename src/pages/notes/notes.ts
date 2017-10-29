@@ -53,6 +53,7 @@ export class NotesPage {
     console.log('ionViewDidLoad NotesPage');
   }
   toparticulars(id) {
+    // console.log(id);
     let model = this.ModCtrl.create(ParticularsPage,{'id':id});
     model.present();
   }

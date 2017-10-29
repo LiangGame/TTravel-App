@@ -8,10 +8,9 @@
 </ion-header>
 
 <ion-content>
-    <ion-refresher (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content>
-      </ion-refresher-content>
-    </ion-refresher>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingText="努力加载中..." ></ion-refresher-content>
+  </ion-refresher>
 
   <div class="mycity"><p>{{cityinfo}}</p></div>
 
@@ -44,7 +43,7 @@
           <ion-col class="s1">
             <img class="lazy" src="{{url}}/uploads/{{topic?.icon}}" alt="{{topic?.userName}}"/>
           </ion-col>
-          <p class="p2">{{topic?.userName}}</p>
+          <p class="p2">{{topic?.userName |themeString:9}}</p>
         </div>
         <div class="fr" col-6>
           <div class="img_2" [innerHTML]="topic?.content">
@@ -53,9 +52,12 @@
         </div>
       </div>
     </ion-row>
-    <ion-row>
-      <button ion-button block (click)="doInfinite($event)">更多</button>
-    </ion-row>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="正在努力加载..."> // 提示文本
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </div>
   </ion-content>
 

@@ -30,8 +30,8 @@ export class UserService {
 
   // 添加用户
   addUser(user, callback) {
-    let _head = new HttpHeaders({token: this.ls.get('token')});
-    this.http.post(this.url + '/users/register', user, {headers: _head}).subscribe(
+    // let _head = new HttpHeaders({token: this.ls.get('token')});
+    this.http.post(this.url + '/users/register', user).subscribe(
       function (result) {
         callback(result);
       },
