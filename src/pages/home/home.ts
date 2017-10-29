@@ -30,11 +30,12 @@ export class HomePage {
               public glo: GlobalPropertyService) {
     this.url = this.glo.serverUrl;
     this.qnUrl = this.glo.qiniuUrl;
+    this.getCity();
+
   }
 
   ionViewDidLoad() {
     this.getNotes();
-    this.getCity();
   }
 
   // toraiders(){
