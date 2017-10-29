@@ -27,8 +27,10 @@ export class StrategyService {
   }
   //获取指定攻略
   getStrategyItem(id, callback) {
+    console.log(id);
     this.http.post(this.url + '/strategy/strategyDetails', id).subscribe(
       function (result) {
+        console.log(result);
         callback(result);
       },
       function (error) {

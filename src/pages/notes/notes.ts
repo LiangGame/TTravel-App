@@ -1,5 +1,5 @@
-import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, ModalController, Slides} from 'ionic-angular';
+import { Component,ViewChild} from '@angular/core';
+import { IonicPage, NavController, NavParams,ModalController,Slides } from 'ionic-angular';
 import {ParticularsPage} from "../particulars/particulars";
 import {NotesService} from '../../services/notes.service';
 import {Storage} from '@ionic/storage';
@@ -24,69 +24,7 @@ export class NotesPage {
   hotNotes: any = [];
   userId: string;
 
-  /*datas=[
 
-    {
-      title:'在路上',
-      img:'05.jpeg',
-      content:'jdkhflsfdiefefifhu',
-      authorName:'Tom',
-    },
-    {
-      title:'在路上',
-      img:'05.jpeg',
-      content:'jdkhflsfdiefefifhu',
-      authorName:'Tom',
-    },
-    {
-      title:'在路上',
-      img:'05.jpeg',
-      content:'jdkhflsfdiefefifhu',
-      authorName:'Tom',
-    },
-    {
-      title:'在路上',
-      img:'05.jpeg',
-      content:'jdkhflsfdiefefifhu',
-      authorName:'Tom',
-    },
-    {
-      title:'在路上',
-      img:'05.jpeg',
-      content:'jdkhflsfdiefefifhu',
-      authorName:'Tom',
-    },
-    {
-      title:'在路上',
-      img:'05.jpeg',
-      content:'jdkhflsfdiefefifhu',
-      authorName:'Tom',
-    },
-    {
-      title:'在路上',
-      img:'05.jpeg',
-      content:'jdkhflsfdiefefifhu',
-      authorName:'Tom',
-    },
-    {
-      title:'在路上',
-      img:'05.jpeg',
-      content:'jdkhflsfdiefefifhu',
-      authorName:'Tom',
-    },
-    {
-      title:'在路上',
-      img:'05.jpeg',
-      content:'jdkhflsfdiefefifhu',
-      authorName:'Tom',
-    },
-    {
-      title:'在路上',
-      img:'05.jpeg',
-      content:'jdkhflsfdiefefifhu',
-      authorName:'Tom',
-    },
-  ];*/
   @ViewChild(Slides) slides: Slides;
 
   constructor(public navCtrl: NavController,

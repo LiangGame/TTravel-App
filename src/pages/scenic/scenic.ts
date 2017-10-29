@@ -104,7 +104,6 @@ export class ScenicPage {
       }
     })
   }
-  // 上拉
 
   tocity(){
     let model = this.ModalCtrl.create(CityPage);

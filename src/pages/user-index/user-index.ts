@@ -44,7 +44,7 @@ export class UserIndexPage {
 //     url: this.glo.serverUrl + "/users/upload",
 //     method: "POST",
 //     itemAlias: "uploadedfile",
-  // })
+//   })
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,

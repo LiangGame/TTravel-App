@@ -39,7 +39,7 @@
   </ion-refresher>
   <ion-grid>
       <!--列表项 ========-->
-      <ion-list *ngFor="let note of newNotes" style="margin: 0" (click)="toparticulars()">
+      <ion-list *ngFor="let note of newNotes" style="margin: 0" (click)="toparticulars(note.notes.id)">
         <!--<ion-item>-->
           <!--小标题=点赞=======-->
           <ion-row>
