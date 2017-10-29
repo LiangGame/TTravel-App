@@ -5,6 +5,7 @@ import {MyApp} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import {FormsModule} from '@angular/forms';
+// import {FileUploadModule} from 'ng2-file-upload';
 
 import {AlbumPage} from '../pages/album/album';
 import {NotesPage} from '../pages/notes/notes';
@@ -96,7 +97,8 @@ import {SearchNotesPipe} from '../Pipes/search-notes.pipe';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    // FileUploadModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -1,5 +1,5 @@
 <ion-header style="padding: 0 !important;">
-  <ion-navbar  style="padding: 0 !important;">
+  <ion-navbar style="padding: 0 !important;">
     <div (click)="tosearch()" col-12 class="search" style="padding: 0 5px !important;">
       <input col-12 type="button" value="搜索目的地">
       <!--<span col-2>搜索</span>-->
@@ -15,7 +15,7 @@
       </div>
       <div class="didian" (click)="tocity()">
         <p>{{cityinfo}}</p>
-        <span >{{personalinfo}}</span>
+        <span>{{personalinfo}}</span>
         <ion-icon name="arrow-dropdown"></ion-icon>
       </div>
     </ion-row>
@@ -28,45 +28,43 @@
   </div>
 
   <div [ngSwitch]="pet">
-    <ion-list style="margin-top: -40px;"  *ngSwitchCase="'俯瞰城市'">
-      <div col-6 style="float: left" *ngFor="let it of city" >
+    <ion-list style="margin-top: -40px;" *ngSwitchCase="'俯瞰城市'">
+      <div col-6 style="float: left" *ngFor="let it of city">
         <img height="150px" width="100%" src="../../assets/images/Destination/1.city/{{it?.img}}">
       </div>
     </ion-list>
     <ion-list style="margin-top: -40px;" *ngSwitchCase="'山水相依'">
-      <div col-6 style="float: left" *ngFor="let ite of nature" >
+      <div col-6 style="float: left" *ngFor="let ite of nature">
         <img height="150px" width="100%" src="../../assets/images/Destination/2.nature/{{ite}}">
       </div>
     </ion-list>
     <ion-list style="margin-top: -40px;" *ngSwitchCase="'古迹遗址'">
-    <div col-6 style="float: left" *ngFor="let itemy of darkness" >
-    <img height="150px" width="100%" src="../../assets/images/Destination/3.town/{{itemy}}">
-    </div>
+      <div col-6 style="float: left" *ngFor="let itemy of darkness">
+        <img height="150px" width="100%" src="../../assets/images/Destination/3.town/{{itemy}}">
+      </div>
     </ion-list>
   </div>
 
-  <ion-list padding style="margin:  0!important;">
+  <ion-list padding no-margin>
     <span class="list-zy">景点：</span>
     <ion-row *ngFor="let nei of _scenic" (click)="tuxiang(nei.id)">
-        <ion-col col-8  style="float: left">
-          <h5 style=" margin-top: 0!important;">{{nei.title}}</h5>
-          <span>{{nei.info}}</span>
-        </ion-col>
-        <ion-col col-4>
-          <img height="80px" width="100%" src="{{qnUrl}}{{nei?.url[1]}}"/>
-        </ion-col>
+      <ion-col col-8 style="float: left">
+        <h4 style=" margin-top: 0!important;">{{nei.title}}</h4>
+        <span>{{nei.info | themeString:30}}</span>
+      </ion-col>
+      <ion-col col-4>
+        <img height="80px" width="100%" src="{{qnUrl}}{{nei?.url[1]}}"/>
+      </ion-col>
     </ion-row>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="正在努力加载..."> // 提示文本
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
   </ion-list>
-  <!--上拉加载-->
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="hcvbcvbgcvgcfgcvg...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
-  <!--<div col-12 style="text-align: center;margin-top: -20px">-->
-    <!--<a>加载更多>></a>-->
-  <!--</div>-->
+
 </ion-content>
 
 

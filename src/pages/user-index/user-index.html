@@ -25,12 +25,17 @@
   <div style="height: 230px">
     <div class="user_topInfo">
       <ion-icon class="user_icon">
-        <img src="{{url}}/uploads/{{user?.icon}}" alt="">
+        <div [innerHTML]="Icon"></div>
+        <!--<img src="{{url}}/uploads/{{user?.icon}}" alt="">-->
+        <input type="file" ng2FileSelect [uploader]="uploader" (change)="_upload($event)">
+        <!--<input type="file">-->
       </ion-icon>
+
       <p style="margin: 0">
         <span class="user_name">{{user?.userName}}</span>
         <span class="user_lv">Lv.{{user?.lvName}}</span>
       </p>
+      <!--</input>-->
       <p style="color: white">个性签名：{{user?.signature}}</p>
       <p text-right style="padding-right: 16px" (click)="updata()">
         <span class="update">修改个人信息</span>

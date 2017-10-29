@@ -1,11 +1,13 @@
-import {Component, ViewChild} from '@angular/core';
-import {NavController, Slides, ModalController} from 'ionic-angular';
+import {Component, ViewChild,} from '@angular/core';
+import {NavController, Slides,ModalController} from 'ionic-angular';
 // , ModalController
 import {IndexService} from '../../services/index.service';
 import {GlobalPropertyService} from "../../services/global-property.service";
 import {SearchPage} from '../search/search';
 // import {StrategyPage} from '../strategy/strategy';
 // import {ScenicPage} from '../scenic/scenic';
+import {XiangqPage} from '../xiangq/xiangq';
+import {ParticularsPage} from "../particulars/particulars";
 
 declare var AMap: any;
 
@@ -17,6 +19,7 @@ declare var AMap: any;
 export class HomePage {
   @ViewChild(Slides) mySlides: Slides;
   _notes: any = [];
+  _scenic:any = [];
   user: any;
   reg: any = /<img\s+.*?>/g;
   url: any;
@@ -27,14 +30,17 @@ export class HomePage {
   constructor(public navCtrl: NavController,
               public ModalCtrl: ModalController,
               public indexSer: IndexService,
+              public ModCtrl: ModalController,
               public glo: GlobalPropertyService) {
     this.url = this.glo.serverUrl;
     this.qnUrl = this.glo.qiniuUrl;
+    this.getCity();
+
   }
 
   ionViewDidLoad() {
+    this.getScenic();
     this.getNotes();
-    this.getCity();
   }
 
   // toraiders(){
@@ -51,12 +57,10 @@ export class HomePage {
     console.log(activeIndex);
     this.mySlides.startAutoplay();
   }
-
-  toliebiao() {
+  toliebiao(){
     let model = this.ModalCtrl.create(SearchPage);
     model.present();
   }
-
   getCity(): Promise<any> {
     // 高德地图ip定位
     let that = this;
@@ -74,7 +78,25 @@ export class HomePage {
       })
     })
   }
-
+  getScenic() {
+    let that = this;
+    that.indexSer.show_scenic(function (result) {
+      // console.log('成功')
+      if (result) {
+        for (let i = 0; i < result.length; i++) {
+          if (result[i].url == '' || result[i].url == null) {
+            continue;
+          } else {
+            result[i].url = (result[i].url).split(',');
+          }
+        }
+        that._scenic = result;
+        // console.log(that._scenic);
+      } else {
+        console.log("error")
+      }
+    })
+  }
   getNotes() {
     let that = this;
     that.indexSer.show_notes(function (result) {
@@ -94,5 +116,43 @@ export class HomePage {
     })
   };
 
+  tuxiang(id){
+    let model = this.ModalCtrl.create(XiangqPage,{'id': id});
+    model.present();
+  }
+  toparticulars(id){
+    let model=this.ModCtrl.create(ParticularsPage,{'id': id});
+    model.present();
+  }
+  doRefresh(refresher) {
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      // this._notes=[
+      //   {
+      //     postId:'001',
+      //     icon_url:'assets/img/smile.png',
+      //     post:'微软总经理',
+      //     salary:'120-1000',
+      //     address:'苏州仁爱路1号'
+      //   }
+      // ];
+      refresher.complete();
+    }, 2000);
+  }
+
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+    setTimeout(() => {
+      // this._notes.push(
+      //   {
+      //     title:'ddvdss',
+      //     icon:'sfds',
+      //     userName:'sfsdfs',
+      //     content:'sdfdssdf',
+      //   }
+      // )
+      // infiniteScroll.complete();
+    }, 500);
+  }
 
 }
