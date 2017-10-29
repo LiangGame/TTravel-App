@@ -13,6 +13,8 @@ export class DetailPage {
   data: any;
   up:string = 'down';
   searText: any;
+  _img: any = /<img\s+.*?>/g;
+  imgs:any=[];
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -36,9 +38,12 @@ export class DetailPage {
     that.StrategySer.getStrategyItem(id, function (result) {
       console.log(result);
       if (result) {
-        // console.log(result);
+        console.log(result);
         that.data = result[0];
         that.searText = that.key;
+        // let len = (result[0].content).match(that._img)
+        that.imgs = (result[0].content).match(that._img);
+        console.log(that.imgs);
       } else {
         // console.log('error');
       }
