@@ -12,25 +12,24 @@
 
 <ion-content style="margin-top:10px">
   <span style="font-size: 18px;padding: 20px 10px">景点概况:</span>
-  <div class="gundong">
-    <marquee behavior="300" direction="left">
-      城市很秀气，风景和人文感觉都很好。知名旅游景点非常多，苏州园林则是最有名的景点。山塘街夜景很美，很有特色，观前街很热闹小吃也多。温婉的江南水乡是一座适合生活的安逸城市.
-    </marquee>
+  <div class="gundong" >
+    <marquee behavior="300" direction="left">{{cityinfo}}</marquee>
   </div>
 
+  <!--下拉刷新-->
+    <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
+      <!--<ion-refresher-content style="font-size: 10px" refreshingText="正在努力加载中..."></ion-refresher-content>-->
+    <!--</ion-refresher>-->
 
-    <ion-refresher (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content style="font-size: 10px" refreshingText="正在努力加载中..."></ion-refresher-content>
-    </ion-refresher>
-    <ion-list >
-       <ion-row (click)="toxiangq()" style="margin-top: 2px!important;padding: 5px !important;" *ngFor="let item of items" >
+    <ion-list padding>
+       <ion-row  style="margin-top: 2px!important;padding: 5px !important;" *ngFor="let item of data | searchScenic:searchtxt" (click)="toxiangq(item.id)">
          <!--(click)="itemTapped($event, item)"-->
          <ion-col col-8 style="float:left;">
-               <h4 style="margin-top: 0px!important;margin-bottom: 0!important;">{{item.post}}</h4>
-               <span style="font-size: 12px!important;">{{item.address}}</span>
+               <h4 style="margin-top: 0!important;margin-bottom: 0!important;">{{item.title}}</h4>
+               <span style="font-size: 12px!important;">{{item.info}}</span>
              </ion-col>
              <ion-col col-4>
-               <img style="height: 80px" src="{{item.icon_url}}">
+               <img style="height: 80px" src="{{qnUrl}}{{item?.url[0]}}">
              </ion-col>
 
        </ion-row>

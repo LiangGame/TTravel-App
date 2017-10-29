@@ -21,6 +21,7 @@ export class ScenicPage {
   cityinfo:any;
   personalinfo:any;
 
+  allScenic:any = [];
   _scenic: any = [];
   user: any;
   qnUrl:any;
@@ -59,7 +60,7 @@ export class ScenicPage {
       }
     })
   }
-
+//地图定位
   getCity(): Promise<any> {
     // 高德地图ip定位
     let that = this;
@@ -85,6 +86,7 @@ export class ScenicPage {
   getScenic() {
     let that = this;
     that.IndexSer.show_scenic(function (result) {
+      that.allScenic = result;
       console.log(result)
       if (result) {
         for (let i = 0; i < result.length; i++) {
@@ -103,7 +105,25 @@ export class ScenicPage {
       }
     })
   }
-
+  // 上拉
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+    setTimeout(() => {
+      console.log('here');
+      // for(let i = this._scenic.length; i < this._scenic.length+1;i++){
+      //   this._scenic.push(this.allScenic[i]);
+      //   console.log(this._scenic);
+      // }
+      // this._scenic.push({
+      //
+      //   id:'003',
+      //   icon_url:'assets/destination/icon.jpg',
+      //   title:'ibm总经理',
+      //   info:'苏州仁爱路3号'
+      // });
+      infiniteScroll.complete();
+    }, 500);
+  }
   tocity(){
     let model = this.ModalCtrl.create(CityPage);
     model.present();
@@ -117,7 +137,6 @@ export class ScenicPage {
     model.present();
   }
   tuxiang(id){
-    //
     let model = this.ModalCtrl.create(XiangqPage,{'id': id});
     model.present();
   }

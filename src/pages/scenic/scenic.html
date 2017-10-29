@@ -45,11 +45,11 @@
     </ion-list>
   </div>
 
-  <ion-list padding>
+  <ion-list padding style="margin:  0!important;">
     <span class="list-zy">景点：</span>
     <ion-row *ngFor="let nei of _scenic" (click)="tuxiang(nei.id)">
         <ion-col col-8  style="float: left">
-          <h2 style=" margin-top: 0!important;">{{nei.title}}</h2>
+          <h5 style=" margin-top: 0!important;">{{nei.title}}</h5>
           <span>{{nei.info}}</span>
         </ion-col>
         <ion-col col-4>
@@ -57,9 +57,16 @@
         </ion-col>
     </ion-row>
   </ion-list>
-  <div col-12 style="text-align: center;margin-top: -30px">
-    <a>加载更多>></a>
-  </div>
+  <!--上拉加载-->
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="hcvbcvbgcvgcfgcvg...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <!--<div col-12 style="text-align: center;margin-top: -20px">-->
+    <!--<a>加载更多>></a>-->
+  <!--</div>-->
 </ion-content>
 
 

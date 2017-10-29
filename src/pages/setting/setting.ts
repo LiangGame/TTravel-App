@@ -71,4 +71,10 @@ export class SettingPage {
     });
     confirm.present();
   }
+
+
+
+  sss(){
+    console.log('here');
+  }
 }
