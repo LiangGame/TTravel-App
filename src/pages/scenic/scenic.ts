@@ -20,7 +20,7 @@ export class ScenicPage {
   city: any = [];
   cityinfo:any;
   personalinfo:any;
-// title:any;
+
   _scenic: any = [];
   allscenic: any = [];
   user: any;
@@ -104,7 +104,25 @@ export class ScenicPage {
       }
     })
   }
-
+  // 上拉
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+    setTimeout(() => {
+      console.log('here');
+      // for(let i = this._scenic.length; i < this._scenic.length+1;i++){
+      //   this._scenic.push(this.allScenic[i]);
+      //   console.log(this._scenic);
+      // }
+      // this._scenic.push({
+      //
+      //   id:'003',
+      //   icon_url:'assets/destination/icon.jpg',
+      //   title:'ibm总经理',
+      //   info:'苏州仁爱路3号'
+      // });
+      infiniteScroll.complete();
+    }, 500);
+  }
   tocity(){
     let model = this.ModalCtrl.create(CityPage);
     model.present();

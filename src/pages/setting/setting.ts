@@ -6,13 +6,6 @@ import {Storage} from '@ionic/storage';
 import {AboutPage} from '../about/about'
 import {LoginPage} from '../login/login';
 
-/**
- * Generated class for the SettingPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-setting',
@@ -70,5 +63,11 @@ export class SettingPage {
       ]
     });
     confirm.present();
+  }
+
+
+
+  sss(){
+    console.log('here');
   }
 }
