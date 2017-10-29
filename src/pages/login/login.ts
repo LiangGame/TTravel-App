@@ -71,7 +71,6 @@ export class LoginPage {
         console.log(result);
         if (result.stateCode === 1) {
           this.navCtrl.push(TabsPage);
-
           this.storage.set('user', result.users);
           this.storage.set('token', result.token);
         }else if(result.stateCode === 9){
