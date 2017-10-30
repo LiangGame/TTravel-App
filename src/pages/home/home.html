@@ -16,16 +16,17 @@
 
   <div class="content">
     <h1>每日推荐</h1>
-    <ion-slides loop="true" (ionSlideDidChange)="slideChanged()" #slides style="height: auto">
+    <ion-slides autoplay="2000" pager="false" loop="true" *ngIf="_scenic.length > 1"
+                (ionSlideDidChange)="slideChanged()" #slides style="height: auto">
       <ion-slide *ngFor="let theme of _scenic">
         <div (click)="tuxiang(theme.id)">
           <div id="indexNotes" class="img_1">
             <img class="img" src="{{qnUrl}}{{theme?.url[1]}}" alt="">
           </div>
           <ion-col class="c1">
-            <h2>{{theme?.info | themeString |themeString:20}}</h2>
+            <h6 no-margin>{{theme?.info | themeString:40}}</h6>
           </ion-col>
-          <p class="p1">{{theme?.title}}</p>
+          <!--<p class="p1" no-margin>{{theme?.title}}</p>-->
         </div>
       </ion-slide>
     </ion-slides>
@@ -33,19 +34,19 @@
   </div>
 
 
-<div>
+  <div>
     <ion-row *ngFor="let topic of _notes">
       <div class="all" (click)="toparticulars(topic.notes.id)">
-        <div class="fl" col-6>
+        <div class="fl" col-7>
           <div>
-            <h2 class="title">{{topic?.notes.title | topicString |themeString:20}}</h2>
+            <h2 class="title"><b>{{topic?.notes.title | topicString |themeString:20}}</b></h2>
           </div>
           <ion-col class="s1">
             <img class="lazy" src="{{url}}/uploads/{{topic?.notes.icon}}" alt="{{topic?.notes.userName}}"/>
           </ion-col>
           <p class="p2">{{topic?.notes.userName |themeString:9}}</p>
         </div>
-        <div class="fr" col-6>
+        <div class="fr" col-5>
           <div class="img_2" [innerHTML]="topic?.coverimg[0]">
             <!--<img class="img" src="http://owpv96eru.bkt.clouddn.com{{topic?.coverimg}}" alt="">-->
           </div>

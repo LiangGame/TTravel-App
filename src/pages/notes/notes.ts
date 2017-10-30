@@ -125,15 +125,13 @@ export class NotesPage {
     let len=this.newNotes.length;
     setTimeout(() => {
       for(var i=len;i<len+3;i++){
-        if(i <this.allNotes.length){
+        if(i < this.allNotes.length){
           this.newNotes.push(this.allNotes[i] ); // 向末尾push数据
           infiniteScroll.complete();
-        }
-        else{
-          infiniteScroll.enable(false)
+        } else{
+          infiniteScroll.enable(false);
         }
       }
-      infiniteScroll.complete();
     }, 500);
   }
   //下拉刷新

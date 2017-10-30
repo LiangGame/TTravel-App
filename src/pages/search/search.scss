@@ -1,15 +1,17 @@
 page-search {
   .search input{
     border: none;
-    color: white;
-    background: #8f8f8f;
+    //color: white;
+    background: white;
+    //background: #8f8f8f;
   }
-  .search span{
-    width: 34px;
+  .search div{
+    text-align: center;
+    //width: 34px;
     height: 34px;
     padding: -2px;
     margin-left: -4px;
-    background-color: white;
+    //background-color: white;
     color: black;
   }
 }

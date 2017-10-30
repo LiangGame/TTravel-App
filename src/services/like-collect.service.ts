@@ -60,7 +60,8 @@ export class LikeCollectService {
 
   //游记收藏
   notesCollect(id, callback) {
-    let _head = new HttpHeaders({token: this.ls.get('token')});
+    let _head = new HttpHeaders({token: this.token});
+
     this.http.post(this.url + '/users/notesCollect', id, {headers: _head}).subscribe(
       function (result) {
         if (result) {

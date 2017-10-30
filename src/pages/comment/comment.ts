@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
-import {NotesService}from '../../services/notes.service';
-import {UserService}from '../../services/user.service';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams, ViewController,ToastController} from 'ionic-angular';
+import {NotesService} from '../../services/notes.service';
+import {UserService} from '../../services/user.service';
 import {Storage} from '@ionic/storage';
+import {GlobalPropertyService} from '../../services/global-property.service';
 
 @IonicPage()
 @Component({
   selector: 'page-comment',
   templateUrl: 'comment.html',
-  providers:[NotesService,UserService]
+  providers: [NotesService, UserService]
 })
 export class CommentPage {
   notes: any;
@@ -17,45 +18,42 @@ export class CommentPage {
   credits: number;
   url: any;
   qnUrl: any;
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public viewCtrl: ViewController,
-    public NotesSer :NotesService,
-    public UserSer :UserService,
-    private storage: Storage,
+  user: any;
 
-  ) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public viewCtrl: ViewController,
+              public NotesSer: NotesService,
+              public UserSer: UserService,
+              public toastCtrl: ToastController,
+              public glo:GlobalPropertyService,
+              private storage: Storage,) {
+    this.url = this.glo.serverUrl;
 
+    this.storage.ready().then(() => {
+      this.storage.get('user').then((result) => {
+        if (result) {
+          this.user = result[0];
+        } else {
+          return;
+        }
+      });
+    });
   }
 
   ionViewDidLoad() {
-    let id=this.navParams.get('id');
+    let id = this.navParams.get('id');
     // let content=this.navParams.get('content');
+    this.notesId = id;
     this.getNotesComment(id);
     console.log(id);
     console.log('ionViewDidLoad CommentPage');
   }
+
   back() {
     this.viewCtrl.dismiss();
   }
 
-
-  // 游记评论
-  notesComment(commentForm, notesId) {
-    // console.log(commentForm);
-    // id = {"notesId": id,comment:content,userId:userid,type:1};
-
-    let userId = JSON.parse(sessionStorage.getItem('user')).id;
-    let body = {comment: commentForm.value.comment, notesId: notesId, userId: userId, type: 1}
-    let that = this;
-    that.NotesSer.notesComment(body, function (result) {
-      // console.log(result);
-      if (result) {
-        that.getCredits(JSON.parse(sessionStorage.getItem('user')).telephone);
-      }
-    })
-  }
 
   // 获取评论信息
   getNotesComment(id) {
@@ -87,7 +85,8 @@ export class CommentPage {
       }
     })
   }
-  getCredits(userId) {
+
+  /*getCredits(userId) {
     if (userId) {
       let that = this;
       that.UserSer.getCredits({telephone: userId}, function (result) {
@@ -107,6 +106,30 @@ export class CommentPage {
         }
       });
     }
+  }*/
+
+
+  // 游记评论
+  notesComment(comment) {
+    // console.log(commentForm);
+    let userId = this.user.id
+    let body = {comment:comment, notesId: this.notesId, userId: userId, type: 1};
+    console.log(body);
+    let that = this;
+    that.NotesSer.notesComment(body, function (result) {
+      console.log(result);
+      if (result) {
+        if(result.statsCode == 'C001'){
+          that.getNotesComment(that.notesId);
+          // that.getCredits(userId);
+          let toast = that.toastCtrl.create({
+            message: '评论成功!',
+            duration: 2000,
+          });
+          toast.present(toast);
+        }
+      }
+    })
   }
 
 }

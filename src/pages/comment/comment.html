@@ -45,7 +45,7 @@
         </ion-item>
 
         <ion-item-options side="right">
-          <button ion-button color="danger">
+          <button ion-button color="danger" (click)="delete(item.id)">
             删除
           </button>
         </ion-item-options>
@@ -55,67 +55,28 @@
 
 
 
-
-
-
-
-  <!--<ion-list>-->
-    <!--<ion-item-sliding>-->
-
-
-    <!--</ion-item-sliding>-->
-  <!--</ion-list>-->
-
-
-  <ion-list style="margin-bottom: 15px" *ngFor="let item of comments">
+  <!--<ion-list style="margin-bottom: 15px" *ngFor="let item of comments">
     <ion-row>
       <ion-col col-3>
         <img style="border-radius: 50%;height: 50px;width: 50px" src="{{url}}/uploads/{{item?.icon}}"/>
-        <!--<img src="../../assets/icon/favicon.ico"/>-->
+        &lt;!&ndash;<img src="../../assets/icon/favicon.ico"/>&ndash;&gt;
       </ion-col>
       <ion-col col-4 style="padding-top: 15px">
         <span>{{item?.userName}} <button class="level">Lv{{item?.lvName}}</button></span>
         <span style="padding-top: 5px;display: block">{{item?.time|localeDate:'date'}}</span>
       </ion-col>
     </ion-row>
-    <ion-row class="content">
-      <ion-col>
-        我们只在清迈的车站停留
-        我们只在清迈的车站停留
-        我们只在清迈的车站停留
-        我们只在清迈的车站停留
-      </ion-col>
-    </ion-row>
-  </ion-list>
-  <ion-list style="margin-bottom: 15px">
-    <ion-row>
-      <ion-col col-3>
-        <img src="../../assets/icon/favicon.ico"/>
-      </ion-col>
-      <ion-col col-4 style="padding-top: 15px">
-        <span>星卷卷 <button class="level">Lv10</button></span>
-        <span style="padding-top: 5px;display: block">2017-08-10</span>
-      </ion-col>
-    </ion-row>
-    <ion-row class="content">
-      <ion-col>
-        我们只在清迈的车站停留
-        我们只在清迈的车站停留
-        我们只在清迈的车站停留
-        我们只在清迈的车站停留
-      </ion-col>
-    </ion-row>
-  </ion-list>
+  </ion-list>-->
 </ion-grid>
 </ion-content>
 
 <ion-footer>
   <ion-row>
     <ion-col col-10 class="fa_bo">
-      <input type="text" placeholder="请输入文字...">
+      <input #comment type="text" placeholder="请输入文字...">
     </ion-col>
     <ion-col>
-      <button class="bu_bu">发表</button>
+      <button class="bu_bu" (click)="notesComment(comment.value)">发表</button>
     </ion-col>
   </ion-row>
 </ion-footer>
