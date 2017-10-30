@@ -53,7 +53,6 @@ export class IndexService {
 
   show_scenic(callback) {
     let that = this;
-
     this.getCity().then(() => {
       console.log(this.cityinfo)
       // 请求数据

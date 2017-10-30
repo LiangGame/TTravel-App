@@ -10,7 +10,9 @@
     <ion-col col-4 text-center>
       <ion-icon class="title">{{scenics?.title}}</ion-icon>
     </ion-col>
-    <ion-col col-4></ion-col>
+    <ion-col col-4 text-right  (click)="footprint(scenics?.id)">
+      <ion-icon name="paw" ></ion-icon>
+    </ion-col>
   </ion-row>
 </ion-header>
 

@@ -67,7 +67,9 @@ export class ParticularsPage {
   }
 
   tocomment(id) {
+    // console.log(id);
     let model = this.ModCtrl.create(CommentPage, {'id': id});
+    // ,'content':content
     model.present();
   }
 

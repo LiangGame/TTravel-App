@@ -15,14 +15,23 @@
 </ion-header>
 
 <ion-content padding>
+  <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
+    <!--<ion-refresher-content refreshingText="努力加载中..." ></ion-refresher-content>-->
+  <!--</ion-refresher>-->
   <ul>
-    <li *ngFor="let img of notes;let i = index">
+    <li *ngFor="let img of newphooto;let i = index" (click)="toyou(img.id)" >
       <div *ngIf="i % 2 == 0"  [innerHTML]="img?.content"></div>
     </li>
   </ul>
   <ul>
-    <li *ngFor="let img of notes;let i = index">
+    <li *ngFor="let img of newphooto;let i = index" (click)="toyou(img.id)">
       <div *ngIf="i % 2 == 1"  [innerHTML]="img?.content"></div>
     </li>
   </ul>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="正在努力加载..."><!--// 提示文本-->
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

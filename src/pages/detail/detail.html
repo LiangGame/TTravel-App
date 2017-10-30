@@ -1,40 +1,41 @@
-<ion-header>
-  <ion-row>
-    <ion-col col-3 style="position: fixed;z-index: 1">
-      <ion-buttons>
-        <button class="back-btn" (click)='back()'>
-          <ion-icon name="arrow-back" style="font-size: 30px;color: white"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-col>
-  </ion-row>
-
-  <ion-navbar>
-    <ion-title>detail</ion-title>
-  </ion-navbar>
-
-  <ion-row>
+<ion-header id="header">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <ion-buttons>
+          <button class="back-btn" (click)="back()">
+            <ion-icon name="arrow-back" style="font-size: 30px"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <ion-icon class="title">{{data?.title}}</ion-icon>
+      </ion-col>
+      <ion-col col-4></ion-col>
+    </ion-row>
+    <ion-row>
     <ion-col col-12>
-      <ion-slides autoplay="3000" loop>
-        <ion-slide>
-          <h1>Slide 1</h1>
+
+      <ion-slides autoplay="2000" pager="true" *ngIf="imgs.length>1" loop="true" (ionSlideDidChange)="slideChanged()" #mySlides>
+        <ion-slide *ngFor="let item of imgs">
+          <ion-item style="padding-left: 0" class="slide" [innerHTML]="item">
+
+          </ion-item>
         </ion-slide>
-        <ion-slide>
-          <h1>Slide 2</h1>
-        </ion-slide>
-        <ion-slide>
-          <h1>Slide 3</h1>
-        </ion-slide>
+
       </ion-slides>
     </ion-col>
-  </ion-row>
+    </ion-row>
+  </ion-grid>
+
+
 </ion-header>
 
 
 
 
 
-<ion-content>
+<ion-content padding style="margin-top: 161px">
   <ion-grid>
     <ion-list class="co_ten" [innerHTML]="data?.content">
     </ion-list>

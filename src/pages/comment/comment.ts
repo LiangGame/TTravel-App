@@ -86,7 +86,7 @@ export class CommentPage {
     })
   }
 
-  getCredits(userId) {
+  /*getCredits(userId) {
     if (userId) {
       let that = this;
       that.UserSer.getCredits({telephone: userId}, function (result) {
@@ -106,7 +106,7 @@ export class CommentPage {
         }
       });
     }
-  }
+  }*/
 
 
   // 游记评论
@@ -121,8 +121,9 @@ export class CommentPage {
       if (result) {
         if(result.statsCode == 'C001'){
           that.getNotesComment(that.notesId);
+          // that.getCredits(userId);
           let toast = that.toastCtrl.create({
-            message: '评论成功！时光+5',
+            message: '评论成功!',
             duration: 2000,
           });
           toast.present(toast);

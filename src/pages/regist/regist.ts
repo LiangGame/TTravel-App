@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {FormBuilder, Validators, FormGroup} from '@angular/forms';
+import {IonicPage, NavController, NavParams,ToastController} from 'ionic-angular';
 
+import {FormBuilder, Validators, FormGroup} from '@angular/forms';
+import {Storage} from '@ionic/storage';
 import {LoginPage} from '../login/login';
 import {UserService} from '../../services/user.service';
-
+import {TabsPage} from '../tabs/tabs'
 /**
  * Generated class for the RegistPage page.
  *
@@ -20,9 +21,9 @@ import {UserService} from '../../services/user.service';
 })
 export class RegistPage {
   registForm: FormGroup;
-  username: any;
+  userName: any;
   password: any;
-  myname:any;
+  telephone:any;
   phoneCode:any;
   get: string = '获取验证码';
   one: boolean = false;
@@ -33,6 +34,8 @@ export class RegistPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private formBuilder: FormBuilder,
+              private storage: Storage,
+              public toastCtrl: ToastController,
               public userSer:UserService) {
 
     this.registForm = formBuilder.group({
@@ -41,12 +44,12 @@ export class RegistPage {
         Validators.required /*为空验证*/,
         Validators.pattern("^(13[0-9]|15[012356789]|17[03678]|18[0-9]|14[57])[0-9]{8}$")])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-      myname:['',Validators.required /*为空验证*/]
+      userName:['',Validators.required /*为空验证*/]
     });
 
-    this.username = this.registForm.controls['telephone'];
+    this.telephone = this.registForm.controls['telephone'];
     this.password = this.registForm.controls['password'];
-    this.myname = this.registForm.controls['myname'];
+    this.userName = this.registForm.controls['userName'];
   }
 
   ionViewDidLoad() {
@@ -80,6 +83,27 @@ export class RegistPage {
       // console.log(that.phoneCode);
     });
   }
+  regist(data) {
+    console.log(data);
+    let that = this;
+    that.userSer.addUser(data, function (result) {
+      console.log(result);
+      if (result.stateCode == '6') {
+        that.navCtrl.push(TabsPage);
+        var user = {telephone: data.telephone, password: data.password}
+        that.userSer.getByPwd(user, function (result) {
+          console.log(result);
+          // console.log(">>>>>>>>>>>>>>>>>>>>");
+          // sessionStorage.setItem('user', JSON.stringify(result.users[0]))
+          // that.router.navigate(['/index']);
 
+        })
+      }
+      if (result.stateCode == '7') {
+        // that.register_res = '用户已注册';
+      }
+
+    })
+  }
 }
 

@@ -17,14 +17,14 @@
       <!--</ion-col>-->
     <!--</ion-row>-->
 
-    <!--<ion-slides autoplay="2000" loop>-->
-      <!--&lt;!&ndash;&lt;!&ndash;<ion-slide *ngFor="let item of hotNotes">&ndash;&gt;&ndash;&gt;-->
-        <!--&lt;!&ndash;&lt;!&ndash;<ion-item class="sl_img" [innerHTML]="item?.coverimg[0]">&ndash;&gt;&ndash;&gt;-->
+    <ion-slides autoplay="2000" pager="true" *ngIf="hotNotes.length>1" loop="true" (ionSlideDidChange)="slideChanged()" #mySlides>
+      <ion-slide *ngFor="let item of hotNotes">
+        <ion-item style="padding-left: 0" class="sl_img" [innerHTML]="item?.coverimg[0]">
 
-        <!--&lt;!&ndash;&lt;!&ndash;</ion-item>&ndash;&gt;&ndash;&gt;-->
-      <!--&lt;!&ndash;</ion-slide>&ndash;&gt;-->
+        </ion-item>
+      </ion-slide>
 
-    <!--</ion-slides>-->
+    </ion-slides>
 
     <ion-row style="font-size: 16px">
       <ion-col col-12>推荐游记</ion-col>

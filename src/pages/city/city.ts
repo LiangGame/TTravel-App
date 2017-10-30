@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, ModalController, ViewController} from 'ionic-angular';
 // import {ScenicPage} from '../scenic/scenic';
+import {LiebiaoPage} from '../liebiao/liebiao';
 import {ScenicService}from '../../services/scenic.service'
 @IonicPage()
 @Component({
@@ -57,6 +58,7 @@ export class CityPage {
           }
         }
       }
+
       console.log('华东地区');
       console.log(that.east);
       console.log('华南地区');
@@ -72,5 +74,10 @@ export class CityPage {
       console.log('东北地区');
       console.log(that.north_east);
     })
+  }
+  tulie(name){
+    console.log(name);
+    let model=this.ModalCtrl.create(LiebiaoPage,{'key':name});
+    model.present();
   }
 }

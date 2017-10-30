@@ -75,11 +75,9 @@ export class ScenicPage {
             that.personalinfo = result.province;  // 当前城市
             // var citybounds = result.bounds;
           }
-
           resolve();
         }
       })
-
     })
   }
 
@@ -104,7 +102,6 @@ export class ScenicPage {
       }
     })
   }
-
   tocity(){
     let model = this.ModalCtrl.create(CityPage);
     model.present();
@@ -118,9 +115,8 @@ export class ScenicPage {
     model.present();
   }
   tuxiang(id){
-    //
     let model = this.ModalCtrl.create(XiangqPage,{'id': id});
-    model.present();
+    model.present()
   }
 
 //上拉加载
