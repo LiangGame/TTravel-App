@@ -1,5 +1,5 @@
 import {Component, ViewChild,} from '@angular/core';
-import {NavController, Slides,ModalController} from 'ionic-angular';
+import {NavController, Slides, ModalController} from 'ionic-angular';
 // , ModalController
 import {IndexService} from '../../services/index.service';
 import {GlobalPropertyService} from "../../services/global-property.service";
@@ -15,13 +15,13 @@ declare var AMap: any;
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [IndexService,NotesService, GlobalPropertyService]
+  providers: [IndexService, NotesService, GlobalPropertyService]
 })
 export class HomePage {
   @ViewChild(Slides) mySlides: Slides;
   _notes: any = [];
   allNotes: any = [];
-  _scenic:any = [];
+  _scenic: any = [];
   hotNotes: any = [];
   user: any;
   reg: any = /<img\s+.*?>/g;
@@ -61,10 +61,12 @@ export class HomePage {
     console.log(activeIndex);
     this.mySlides.startAutoplay();
   }
-  toliebiao(){
+
+  toliebiao() {
     let model = this.ModalCtrl.create(SearchPage);
     model.present();
   }
+
   getCity(): Promise<any> {
     // 高德地图ip定位
     let that = this;
@@ -82,6 +84,7 @@ export class HomePage {
       })
     })
   }
+
   getScenic() {
     let that = this;
     that.indexSer.show_scenic(function (result) {
@@ -101,32 +104,23 @@ export class HomePage {
       }
     })
   }
+
   getNotes() {
     let that = this;
-    that.indexSer.show_notes(function (result) {
+    let num = {num: 100};
+    that._notes = [];
+    that.NotServ.getNotes(num, function (result) {
       if (result) {
+        console.log(result);
+        let reg = that.reg;
+        that.allNotes = [];
         for (let i = 0; i < result.length; i++) {
           if ((result[i].content).match(that.reg)) {
-            result[i].content = ((result[i].content).match(that.reg)[0]);
+            that.allNotes.push({coverimg: (result[i].content).match(that.reg), notes: result[i]})
+          }else {
+            that.allNotes.push({coverimg: '/notesDefault.jpeg', notes: result[i]})
           }
-        }
-        that._notes = result;
-        // that.newNotes = result[0];
-        console.log(that._notes);
-        // console.log();
-      } else {
-        console.log("error");
-      }
-    })
-  };
-  getHotNotes() {
-    let that = this;
-    that.NotServ.getHotNotes(function (result) {
-      if (result) {
-        for (let i = 0; i < result.length; i++) {
-          if ((result[i].content).match(that.reg)) {
-            that.hotNotes.push({coverimg: (result[i].content).match(that.reg), notes: result[i]})
-          }
+          // result[i].content = (((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '').replace(/——/ig, ''));
           if (result[i].comment == '' || result[i].comment == null) {
             result[i].comment = 0;
           }
@@ -134,19 +128,24 @@ export class HomePage {
             result[i].like = 0;
           }
         }
-        // that.hotNotes = result;
-        // console.log('相关阅读');
-        console.log(that.hotNotes);
+        for( let i=0;i<5;i++){
+          that._notes.push(that.allNotes[i])
+        }
+        // that.notes = result;
+        console.log(that._notes);
+      } else {
+        console.log('没获取到游记数据!');
       }
-    })
+    });
   }
 
-  tuxiang(id){
-    let model = this.ModalCtrl.create(XiangqPage,{'id': id});
+  tuxiang(id) {
+    let model = this.ModalCtrl.create(XiangqPage, {'id': id});
     model.present();
   }
-  toparticulars(id){
-    let model=this.ModCtrl.create(ParticularsPage,{'id': id});
+
+  toparticulars(id) {
+    let model = this.ModCtrl.create(ParticularsPage, {'id': id});
     model.present();
   }
 
@@ -154,6 +153,7 @@ export class HomePage {
     console.log('Begin async operation', refresher);
     setTimeout(() => {
       console.log('Async operation has ended');
+      this.getScenic();
       this.getNotes();
 
       refresher.complete();
@@ -161,14 +161,14 @@ export class HomePage {
   }
 
   doInfinite(infiniteScroll) {
-    let len=this._notes.length;
+    let len = this._notes.length;
     setTimeout(() => {
-      for(var i=len;i<len+3;i++){
-        if(i <this.allNotes.length){
-          this._notes.push(this.allNotes[i] ); // 向末尾push数据
+      for (var i = len; i < len + 3; i++) {
+        if (i < this.allNotes.length) {
+          this._notes.push(this.allNotes[i]); // 向末尾push数据
           infiniteScroll.complete();
         }
-        else{
+        else {
           infiniteScroll.enable(false)
         }
       }
