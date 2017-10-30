@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, ModalController, ViewController} from 'ionic-angular';
-// import {ScenicPage} from '../scenic/scenic';
+import {SearchPage} from '../search/search';
 import {LiebiaoPage} from '../liebiao/liebiao';
 import {ScenicService}from '../../services/scenic.service'
 @IonicPage()
@@ -76,8 +76,12 @@ export class CityPage {
     })
   }
   tulie(name){
-    console.log(name);
+    // console.log(name);
     let model=this.ModalCtrl.create(LiebiaoPage,{'key':name});
+    model.present();
+  }
+  tosearch(){
+    let model=this.ModalCtrl.create(SearchPage);
     model.present();
   }
 }
