@@ -35,18 +35,18 @@
 
 <div>
     <ion-row *ngFor="let topic of _notes">
-      <div class="all" (click)="toparticulars(topic.id)">
+      <div class="all" (click)="toparticulars(topic.notes.id)">
         <div class="fl" col-6>
           <div>
-            <h2 class="title">{{topic?.title | topicString |themeString:20}}</h2>
+            <h2 class="title">{{topic?.notes.title | topicString |themeString:20}}</h2>
           </div>
           <ion-col class="s1">
-            <img class="lazy" src="{{url}}/uploads/{{topic?.icon}}" alt="{{topic?.userName}}"/>
+            <img class="lazy" src="{{url}}/uploads/{{topic?.notes.icon}}" alt="{{topic?.notes.userName}}"/>
           </ion-col>
-          <p class="p2">{{topic?.userName |themeString:9}}</p>
+          <p class="p2">{{topic?.notes.userName |themeString:9}}</p>
         </div>
         <div class="fr" col-6>
-          <div class="img_2" [innerHTML]="topic?.content">
+          <div class="img_2" [innerHTML]="topic?.coverimg[0]">
             <!--<img class="img" src="http://owpv96eru.bkt.clouddn.com{{topic?.coverimg}}" alt="">-->
           </div>
         </div>

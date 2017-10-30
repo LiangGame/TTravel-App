@@ -14,6 +14,7 @@ import {GlobalPropertyService} from '../../services/global-property.service'
 export class StrategyPage {
   _scenic:any=[];
   qnUrl:any;
+  allstrategy:any=[];
   @ViewChild(Slides) slides: Slides;
 
   constructor(public navCtrl: NavController,
@@ -48,10 +49,17 @@ export class StrategyPage {
   }
 
   doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
+    let len=this._scenic.length;
     setTimeout(() => {
-      console.log('Async operation has ended');
-      infiniteScroll.complete();
+      for(var i=len;i<len+3;i++){
+        if(i <this.allstrategy.length){
+          this._scenic.push(this.allstrategy[i] ); // 向末尾push数据
+          infiniteScroll.complete();
+        }
+        else{
+          infiniteScroll.enable(false)
+        }
+      }
     }, 500);
   }
   getStrategys() {
@@ -60,6 +68,7 @@ export class StrategyPage {
       if(result){
         for (let i = 0; i < result.length; i++) {
       // console.log(result[i]);
+          that.allstrategy.push(result[i])
        }
         for(let i=0;i<5;i++){
           that._scenic.push(result[i]);
