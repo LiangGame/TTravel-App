@@ -1,4 +1,3 @@
-
 <ion-header id="header">
   <!--返回键===============-->
   <ion-row>
@@ -10,10 +9,9 @@
       </ion-buttons>
     </ion-col>
     <ion-col col-10 style="text-align: center;font-size: 16px">
-      详情
+      {{notes?.title}}
     </ion-col>
     <ion-col col-1>
-      <ion-icon name="chatbubbles" style="font-size:30px;color: black;" (click)="tocomment(notes.id)"></ion-icon>
     </ion-col>
   </ion-row>
   <!--图片部分==============-->
@@ -22,7 +20,7 @@
 <ion-content padding>
   <ion-row>
     <ion-col col-12 class="title">
-     {{notes?.title}}
+      {{notes?.title}}
     </ion-col>
   </ion-row>
   <ion-row>
@@ -33,64 +31,87 @@
       <ion-icon name="heart" style="margin-left: 10px"></ion-icon>
       {{notes?.like}}
     </ion-col>
-    <!--<ion-col col-3>-->
-      <ion-fab right bottom style="position: fixed">
-        <button ion-fab class="fenxiang"><ion-icon name="arrow-dropleft" style="color:white;font-weight: 600"></ion-icon></button>
-        <ion-fab-list side="top">
-          <button ion-fab style="background-color: #FEDC2A"><ion-icon name="logo-facebook"></ion-icon></button>
-          <button ion-fab style="background-color: #FEDC2A"><ion-icon name="logo-twitter"></ion-icon></button>
-        </ion-fab-list>
-      </ion-fab>
-    <!--</ion-col>-->
-  </ion-row>
-  <ion-row>
 
+    <!--<ion-fab right bottom style="position: fixed">
+      <button ion-fab class="fenxiang">
+        <ion-icon name="arrow-dropleft" style="color:white;font-weight: 600"></ion-icon>
+      </button>
+      <ion-fab-list side="top">
+        <button ion-fab style="background-color: #FEDC2A">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+        <button ion-fab style="background-color: #FEDC2A">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </button>
+      </ion-fab-list>
+    </ion-fab>-->
+
+  </ion-row>
+
+  <ion-row>
     <ion-col col-3>
-      <ion-avatar item-center >
+      <ion-avatar item-center>
         <img style="border-radius: 50%;height: 50px;width: 50px" src="{{url}}/uploads/{{notes?.icon}}"/>
       </ion-avatar>
     </ion-col>
     <ion-col col-6>
       <div style="padding-top: 15px">
         <span>{{notes?.userName}}</span>
-        <span>Lv.{{notes?.lvName}}
-</span>
+        <span>Lv.{{notes?.lvName}}</span>
       </div>
     </ion-col>
-
   </ion-row>
   <ion-grid>
     <!--<ion-row>我的出行信息</ion-row>-->
     <ion-row>
-     <ion-col col-12 class="classify">
-       <ion-row style="margin-top: 8px">
-         <ion-col col-8>
-           <ion-icon name="clock"></ion-icon>
-           出发时间/{{notes?.starTime|localeDate:'date'}}
-         </ion-col>
-         <ion-col col-6>
-           <ion-icon name="time"></ion-icon>
-           出行天数/{{notes?.useTime}}
-         </ion-col>
-       </ion-row>
-       <ion-row>
-         <ion-col col-8>
-           <ion-icon name="clock"></ion-icon>
-           人均费用/{{notes?.cost}}RMB
-         </ion-col>
-         <ion-col col-5>
-           <ion-icon name="time"></ion-icon>
-           人物/{{notes?.person}}
-         </ion-col>
-       </ion-row>
-     </ion-col>
+      <ion-col col-12 class="classify">
+        <ion-row style="margin-top: 8px">
+          <ion-col col-8>
+            <ion-icon name="clock"></ion-icon>
+            出发时间/{{notes?.starTime|localeDate:'date'}}
+          </ion-col>
+          <ion-col col-6>
+            <ion-icon name="time"></ion-icon>
+            出行天数/{{notes?.useTime}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-8>
+            <ion-icon name="clock"></ion-icon>
+            人均费用/{{notes?.cost}}RMB
+          </ion-col>
+          <ion-col col-5>
+            <ion-icon name="time"></ion-icon>
+            人物/{{notes?.person}}
+          </ion-col>
+        </ion-row>
+      </ion-col>
     </ion-row>
     <!--标题==============-->
     <ion-list class="con_img" [innerHTML]="notes?.content" style="margin-top: 15px">
-
     </ion-list>
-
-
   </ion-grid>
 
+
+
+
 </ion-content>
+
+<ion-footer>
+  <ion-grid style="border-top:solid 1px #999;">
+    <ion-row text-center>
+      <ion-col col-6 (click)="collect(notes.id)">
+        <ion-icon name="star-outline" style="font-size:25px;color: black;"></ion-icon>
+        <p no-margin>收藏</p>
+      </ion-col>
+      <ion-col col-6 (click)="tocomment(notes.id)">
+        <ion-icon name="chatbubbles-outline" style="font-size:25px;color: black;"></ion-icon>
+        <p no-margin>评论</p>
+      </ion-col>
+      <!--<ion-col col-4 (click)="share()">-->
+        <!--<ion-icon name="share-outline" style="font-size:25px;color: black;"></ion-icon>-->
+        <!--<p no-margin>分享</p>-->
+      <!--</ion-col>-->
+    </ion-row>
+  </ion-grid>
+</ion-footer>
