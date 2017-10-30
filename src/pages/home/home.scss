@@ -1,47 +1,60 @@
 page-home {
-  .search{
+  .search {
     //margin-left: 10px;
     float: right;
     //margin-top: -37px;
-    input{
+    input {
       border: none;
       color: #8f8f8f;
     }
   }
-  .mycity{
-
-    margin-left: 15px;
-    display: inline-block;
-    p{
-      margin-bottom:0;
-      font-size: 16px;
-      color: white;
-      padding: 3px 7px;
-      background-color: cornflowerblue;
-      border-radius: 10px;
-    }
-
+  .con{
+    margin-bottom: 5px;
   }
-  ._container{
+  .mycity {
+    margin-top: 7px;
+    margin-left: 10px;
+    display: inline-block;
+    padding: 3px 7px;
+    background-color: gainsboro;
+    border-radius: 10px;
+    ._pin {
+      font-size: 20px;
+      float: left;
+      color: white;
+    }
+    p {
+      margin: 0;
+      font-size: 15px;
+      color: #666;
+    }
+  }
+  .tit {
+    margin: 0;
+    text-align: left;
+    display: inline-block;
+    float: right;
+    h1 {
+      margin: 0;
+    }
+  }
+  ._container {
     text-align: center;
   }
-  .content{
+  .content {
     padding-left: 15px;
     padding-right: 15px;
 
-  h1{
-    margin: 10px auto;
-  }
-  .img_1{
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
-    margin-bottom: 5px;
-    img {
+    .img_1 {
       width: 100%;
+      height: 150px;
+      overflow: hidden;
+      margin-bottom: 5px;
+      img {
+        width: 100%;
+      }
     }
-  }
-    .img_2{
+    .img_2 {
       width: 100%;
       overflow: hidden;
       img {
@@ -49,52 +62,52 @@ page-home {
         height: 100px !important;
       }
     }
-  .c1,h2{
-    width: 100%;
-    margin: 0!important;
-    padding: 0!important;
-    text-align: left;
-  }
-    .p1{
+    .c1, h2 {
+      width: 100%;
+      margin: 0 !important;
+      padding: 0 !important;
+      text-align: left;
+    }
+    .p1 {
       float: left;
       color: gray;
     }
-    .p2{
+    .p2 {
       color: gray;
       margin-top: 20px;
 
     }
 
-  .s1{
-    margin-top: 10px;
-    position: relative;
-    float: left!important;
-    width: 36px;
-    height: 36px;
-    padding: 4px;
-    background: #fff;
-    border-radius: 50%;
-    .lazy{
-      vertical-align: top;
-      width: 100%;
-      height: 100%;
+    .s1 {
+      margin-top: 10px;
+      position: relative;
+      float: left !important;
+      width: 36px;
+      height: 36px;
+      padding: 4px;
+      background: #fff;
       border-radius: 50%;
-    }
+      .lazy {
+        vertical-align: top;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
 
-  }
-    .all{
+    }
+    .all {
       border-bottom: 1px solid gainsboro;
       margin-top: 10px;
       margin-bottom: 10px;
       padding-bottom: 15px;
     }
-    .fr{
+    .fr {
       float: right;
     }
-    .fl{
+    .fl {
       float: left;
     }
-    .title{
+    .title {
       position: relative;
       margin-bottom: 20px;
     }

@@ -11,11 +11,12 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content refreshingText="努力加载中..." ></ion-refresher-content>
   </ion-refresher>
-
-  <div class="mycity"><p>{{cityinfo}}</p></div>
-
+<div col-12 class="con">
+  <div col-3 class="mycity"><ion-icon name="pin" class="_pin"></ion-icon><p>{{cityinfo}}</p></div>
+  <div col-8 class="tit"><h1>每日推荐</h1></div>
+</div>
   <div class="content">
-    <h1>每日推荐</h1>
+
     <ion-slides autoplay="2000" pager="false" loop="true" *ngIf="_scenic.length > 1"
                 (ionSlideDidChange)="slideChanged()" #slides style="height: auto">
       <ion-slide *ngFor="let theme of _scenic">
