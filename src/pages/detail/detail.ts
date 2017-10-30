@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
+import { Component,ViewChild} from '@angular/core';
+import { IonicPage, NavController, NavParams,ViewController,Slides } from 'ionic-angular';
 import {StrategyService} from '../../services/strategy.service'
 
 @IonicPage()
@@ -14,7 +14,9 @@ export class DetailPage {
   up:string = 'down';
   searText: any;
   _img: any = /<img\s+.*?>/g;
-  imgs:any=[];
+  imgs=[];
+
+  @ViewChild(Slides) mySlides: Slides;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -32,6 +34,11 @@ export class DetailPage {
     this.viewCtrl.dismiss();
   }
 
+  slideChanged() {
+    let activeIndex = this.mySlides.getActiveIndex();
+    // console.log(activeIndex);
+    this.mySlides.startAutoplay();
+  }
   xiangqing(id){
     let that = this;
     id = {"styategyId": id};

@@ -25,7 +25,7 @@ export class NotesPage {
   userId: string;
 
 
-  @ViewChild(Slides) slides: Slides;
+  @ViewChild(Slides) mySlides: Slides;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -37,6 +37,7 @@ export class NotesPage {
   }
 
   ionViewDidLoad() {
+    let that=this;
     this.getNotes();
     this.getHotNotes();
     this.storage.ready().then(() => {
@@ -51,6 +52,11 @@ export class NotesPage {
       });
     });
     console.log('ionViewDidLoad NotesPage');
+  }
+  slideChanged() {
+    let activeIndex = this.mySlides.getActiveIndex();
+    // console.log(activeIndex);
+    this.mySlides.startAutoplay();
   }
   toparticulars(id) {
 

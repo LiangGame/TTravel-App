@@ -13,14 +13,19 @@
       </ion-col>
       <ion-col col-4></ion-col>
     </ion-row>
-    <!--<ion-row>-->
-    <!--<ion-col col-12>-->
-    <!--<ion-slides autoplay="2000" loop>-->
-    <!--<ion-slide class="slide" *ngFor="let item of imgs" [innerHTML]="item">-->
-    <!--</ion-slide>-->
-    <!--</ion-slides>-->
-    <!--</ion-col>-->
-    <!--</ion-row>-->
+    <ion-row>
+    <ion-col col-12>
+
+      <ion-slides autoplay="2000" pager="true" *ngIf="imgs.length>1" loop="true" (ionSlideDidChange)="slideChanged()" #mySlides>
+        <ion-slide *ngFor="let item of imgs">
+          <ion-item style="padding-left: 0" class="slide" [innerHTML]="item">
+
+          </ion-item>
+        </ion-slide>
+
+      </ion-slides>
+    </ion-col>
+    </ion-row>
   </ion-grid>
 
 
@@ -30,7 +35,7 @@
 
 
 
-<ion-content padding>
+<ion-content padding style="margin-top: 161px">
   <ion-grid>
     <ion-list class="co_ten" [innerHTML]="data?.content">
     </ion-list>
