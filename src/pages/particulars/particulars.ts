@@ -17,9 +17,7 @@ export class ParticularsPage {
   noLogin: boolean = false;
   url: any;
   qnUrl: any;
-
   notesUrl: string;
-
   _title: any;
   _source: any;
   _sourceUrl: any;
@@ -28,6 +26,7 @@ export class ParticularsPage {
   _summary: any = '@-时光游-';
   _site: any;
   _width: any = 600;
+  _height:any=600;
   _top = (screen.height - this._height) / 2;
   _left = (screen.width - this._width) / 2;
   _url: any;
